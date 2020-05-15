@@ -24,8 +24,8 @@ struct dataTypes
 
 struct tree
 {
-     int Size; ///dimensiunea totala a arborelui
-     struct treeNode** arr; ///vector de pointeri catre nodurile arborelui
+    int Size; ///dimensiunea totala a arborelui
+    struct treeNode** arr; ///vector de pointeri catre nodurile arborelui
 };
 
 /// nod =obiect JSON

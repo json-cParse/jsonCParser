@@ -47,29 +47,29 @@ struct treeNode* newNode()
 
 struct treeNode* addBro(struct treeNode* node)
 {
- if (node == NULL)
+    if (node == NULL)
         return NULL;
 
- while (node->bro)
-    node = node->bro;
+    while (node->bro)
+        node = node->bro;
 
- node->bro = newNode();
+    node->bro = newNode();
 
- return node->bro;
+    return node->bro;
 }
 
 ///addKid adauga un nod copil
 
 struct treeNode* addKid(struct treeNode* node)
 {
- if (node ==NULL)
+    if (node ==NULL)
         return NULL;
 
- if (node->kid != NULL )
-    return addBro(node->kid);
+    if (node->kid != NULL )
+        return addBro(node->kid);
 
- node->kid=newNode();
- return node->kid;
+    node->kid=newNode();
+    return node->kid;
 }
 
 
@@ -77,6 +77,7 @@ struct treeNode* addKid(struct treeNode* node)
 
 bool isFileEmpty(FILE* fin)
 {
-     if (feof(fin)) return true;
-     return false;
+    if (feof(fin))
+        return true;
+    return false;
 }
