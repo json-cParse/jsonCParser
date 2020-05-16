@@ -59,13 +59,14 @@ void readJSON(char* inputFile)
         {
             word = createWord(fin);
             isKey = true;
-            //printf("%s \n",word);
+            printf("%s \n",word);
         }
 
         if (c == '[')
         {
             int arrS=0;
-            curr->data = createArray(fin, &arrS);
+            int dimS=0;
+            curr->data = createArray(fin, &arrS, &dimS);
         }
 
     }

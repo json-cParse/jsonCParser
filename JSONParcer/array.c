@@ -8,7 +8,7 @@
 #include "tempFunctions.h"
 #include "conversion.h"
 
-struct dataTypes* createArray(FILE* fin,int* size)
+struct dataTypes* createArray(FILE* fin, int* size, int *dim)
 {
     struct dataTypes* temp;
     temp=(struct dataTypes*)malloc(1*sizeof(struct dataTypes));
@@ -23,7 +23,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                 temp->stringArray=(char **)malloc(1*sizeof(char*));
                 temp->stringArray[*size]=(char*)malloc(1000*sizeof(char));
                 temp->stringArray[*size]=createWord(fin);
-                //printf("%s\n",temp->stringArray[*size]);
+                printf("%s ------------------\n",temp->stringArray[*size]);
                 (*size)++;
             }
             else
@@ -32,7 +32,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                 assert(temp->stringArray != NULL);
                 temp->stringArray[*size]=(char*)malloc(1000*sizeof(char));
                 temp->stringArray[*size]=createWord(fin);
-                //printf("%s\n",temp->stringArray[*size]);
+                printf("%s -----------------\n",temp->stringArray[*size]);
                 (*size)++;
             }
         }
@@ -40,8 +40,8 @@ struct dataTypes* createArray(FILE* fin,int* size)
         {
             bool IntOrDouble=0;
             char* number = createNumber(c , &IntOrDouble , fin);
-            //printf("%s *****\n" , number);
-            //printf("%d bool\n" , IntOrDouble);
+            printf("%s *****\n" , number);
+            printf("%d bool\n" , IntOrDouble);
             if ( IntOrDouble == 0)
             {
                 if ( *size == 0)
@@ -49,7 +49,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                     temp->intArray = (int *) malloc(sizeof(int));
                     assert(temp->intArray != NULL);
                     temp->intArray[ *size ]= stringToInt(number);
-                    //printf("%d int\n",temp->intArray[*size]);
+                    printf("%d int\n",temp->intArray[*size]);
                     ( * size) ++;
                 }
                 else
@@ -57,7 +57,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                     temp->intArray = (int *) realloc(temp->intArray , ((*size)+1) * sizeof (int));
                     assert(temp->intArray != NULL);
                     temp->intArray[ *size ]= stringToInt(number);
-                    //printf("%d int\n",temp->intArray[*size]);
+                    printf("%d int\n",temp->intArray[*size]);
                     ( * size) ++;
                 }
             }
@@ -68,7 +68,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                     temp->doubleArray = (double *) malloc(sizeof(double));
                     assert(temp->doubleArray != NULL);
                     temp->doubleArray[ *size ]= stringToDouble(number);
-                    //printf("%f\n",temp->doubleArray[*size]);
+                    printf("%f\n",temp->doubleArray[*size]);
                     ( * size) ++;
                 }
                 else
@@ -76,7 +76,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                     temp->doubleArray = (double *) realloc(temp->doubleArray , ((*size)+1) * sizeof (double));
                     assert(temp->doubleArray != NULL);
                     temp->doubleArray[ *size ]= stringToDouble(number);
-                    //printf("%f\n",temp->doubleArray[*size]);
+                    printf("%f\n",temp->doubleArray[*size]);
                     ( * size) ++;
                 }
             }
@@ -107,7 +107,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                 else
                      temp->boolArray[ *size ]= false;
 
-                //printf("%d\n",temp->boolArray[*size]);
+                printf("%d\n",temp->boolArray[*size]);
                 ( * size) ++;
             }
         }
@@ -119,7 +119,7 @@ struct dataTypes* createArray(FILE* fin,int* size)
                 temp->nullArray = (bool *) malloc(sizeof(bool));
                 assert(temp->nullArray != NULL);
                 temp->nullArray[ *size ]= true;
-               // printf("%d\n",temp->nullArray[*size]);
+                printf("%d\n",temp->nullArray[*size]);
                 ( * size) ++;
             }
             else
@@ -127,10 +127,79 @@ struct dataTypes* createArray(FILE* fin,int* size)
                 temp->nullArray = (bool *) realloc(temp->nullArray , ((*size)+1) * sizeof (bool));
                 assert(temp->nullArray != NULL);
                 temp->nullArray[ *size ]= true;
-                //printf("%d\n",temp->nullArray[*size]);
+                printf("%d\n",temp->nullArray[*size]);
                 ( * size) ++;
             }
         }
+        else if  (c == '[')
+        {
+            *size = 0;
+            while((c = fgetc(fin)) != ']')
+            {
+                //printf("CAR: %c \n", c);
+
+            if(c == '"')
+        {
+            if(*dim == 0)
+            {
+                temp->stringArrayArr = (char***)malloc(sizeof(char**));
+                assert(temp->stringArrayArr != NULL);
+
+
+
+                    if(*size == 0)
+                    {
+                        temp->stringArrayArr[*dim]=(char **)malloc(1*sizeof(char*));
+                        assert(temp->stringArrayArr[*dim] != NULL);
+                        temp->stringArrayArr[*dim][*size]=(char*)malloc(1000*sizeof(char));
+                        assert(temp->stringArrayArr[*dim][*size] != NULL);
+                        temp->stringArrayArr[*dim][*size]=createWord(fin);
+                        printf("******%s\n",temp->stringArrayArr[*dim][*size]);
+                        (*size)++;
+                    }
+                    else
+                    {
+                        temp->stringArrayArr[*dim]=(char**)realloc(temp->stringArrayArr[*dim],((*size)+1)*sizeof(char*));
+                        assert(temp->stringArrayArr[*dim] != NULL);
+                        temp->stringArrayArr[*dim][*size]=(char*)malloc(1000*sizeof(char));
+                        temp->stringArrayArr[*dim][*size]=createWord(fin);
+                        printf("******%s\n",temp->stringArrayArr[*dim][*size]);
+                        (*size)++;
+                    }
+
+                (*dim)++;
+            }
+            else
+            {
+                temp->stringArrayArr = (char***)realloc(temp->stringArrayArr, ((*dim)+1) * sizeof(char**));
+                assert(temp->stringArrayArr != NULL);
+
+
+                    if(*size == 0)
+                    {
+                        temp->stringArrayArr[*dim]=(char **)malloc(1*sizeof(char*));
+                        temp->stringArrayArr[*dim][*size]=(char*)malloc(1000*sizeof(char));
+                        temp->stringArrayArr[*dim][*size]=createWord(fin);
+                        printf("******%s\n",temp->stringArrayArr[*dim][*size]);
+                        (*size)++;
+                    }
+                    else
+                    {
+                        temp->stringArrayArr[*dim]=(char**)realloc(temp->stringArrayArr[*dim],((*size)+1)*sizeof(char*));
+                        assert(temp->stringArrayArr[*dim] != NULL);
+                        temp->stringArrayArr[*dim][*size]=(char*)malloc(1000*sizeof(char));
+                        temp->stringArrayArr[*dim][*size]=createWord(fin);
+                        printf("******%s\n",temp->stringArrayArr[*dim][*size]);
+                        (*size)++;
+                    }
+
+                (*dim)++;
+            }
+
+        }
+    }}
+    else  continue;
+    //else printf("\nAlt caz");
     }
-    return temp;
+     return temp;
 }

@@ -19,6 +19,12 @@ struct dataTypes
     char** stringArray; ///vector string
     bool* boolArray; ///vector bool
     bool* nullArray; ///vector null
+
+    int** intArrayArr; ///vector de vectori int
+    double** doubleArrayArr; ///vector de vectori de double
+    char*** stringArrayArr; ///vector de vectori string
+    bool** boolArrayArr; ///vector de vectori bool
+    bool** nullArrayArr; ///vector de vectori null
 };
 
 struct tree

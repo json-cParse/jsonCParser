@@ -1,3 +1,3 @@
 #pragma once
 
-struct dataTypes* createArray(FILE*, int*);
+struct dataTypes* createArray(FILE*, int*, int*);
