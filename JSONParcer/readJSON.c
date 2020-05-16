@@ -5,6 +5,7 @@
 
 #include "data.h"
 #include "tempFunctions.h"
+#include "array.h"
 
 #define stringSize 30
 
@@ -19,7 +20,8 @@ void readJSON(char* inputFile)
     bool isKey;
     char* word;
 
-
+    struct treeNode* tempDad = newNode();
+    tempDad->key="ROOT";
     struct treeNode* curr=newNode();
     while ( (c= fgetc(fin)) !=EOF)
     {
@@ -34,31 +36,36 @@ void readJSON(char* inputFile)
 
                 root->key = (char*)malloc(stringSize*sizeof(char));
                 root->key = "root";
+                root->dad = tempDad;
                 curr = root;
+                tempDad = curr;
 
-
-                printf("%s ----- \n ", curr->key);
+                //printf("%s ----- \n ", curr->key);
             }
             else
             {
+
                 curr->kid = addKid(curr);
+                curr = curr->kid;
                 curr->key = word;
+                curr->dad = tempDad;
+                tempDad = curr;
                 isKey = false;
-                printf("%s --------- \n", curr->key);
+                //printf("%s --------- \n", curr->key);
+                printf("%s are parinte pe %s\n", curr->key, curr->dad->key);
             }
         }
         if (c == '"')
         {
             word = createWord(fin);
             isKey = true;
-            printf("%s \n",word);
+            //printf("%s \n",word);
         }
 
         if (c == '[')
         {
             int arrS=0;
             curr->data = createArray(fin, &arrS);
-            int i=0;
         }
 
     }

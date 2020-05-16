@@ -14,7 +14,6 @@ struct dataTypes
     bool boolVal; ///valoare bool
     bool nullVal; ///valoare null ( daca elementul este de tip null, nullVal=1)
 
-    int Size;
     int* intArray; ///vector int
     double* doubleArray; ///vector de double
     char** stringArray; ///vector string
@@ -31,6 +30,7 @@ struct treeNode
 
     struct treeNode* kid;
     struct treeNode* bro;
+    struct treeNode* dad;
 };
 
 struct tree
@@ -48,6 +48,7 @@ struct treeNode* newNode()
 
     temp->kid = NULL;
     temp->bro = NULL;
+    temp->dad = NULL;
 
     return temp;
 }
