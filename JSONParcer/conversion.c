@@ -50,8 +50,6 @@ char* createNumber(char s,bool* b,FILE* fin)
     num=(char*)malloc(1000*sizeof(char));
     assert(num != NULL);
     num[0]=s;
-    //strcpy(num,&s);
-    //strcat(num,&s);
     printf("%s\n",num);
     int i=1;
     while(strchr(sep,(c = fgetc(fin))) == NULL)
@@ -59,10 +57,28 @@ char* createNumber(char s,bool* b,FILE* fin)
         num[i]=c;
         printf("%s\n",num);
         i++;
-        //strcat(num,&c);
         if(c == '.')
             (*b)=1;
     }
     num[i]='\0';
     return num;
+}
+
+char* createBoolAndNull(char s, FILE* fin)
+{
+    char c;
+    char* var, *sep=" \t,\n]";
+    var=(char*)malloc(1000*sizeof(char));
+    assert(var != NULL);
+    var[0]=s;
+    printf("%s\n",var);
+    int i=1;
+    while(strchr(sep,(c = fgetc(fin))) == NULL)
+    {
+        var[i]=c;
+        //printf("%s\n",var);
+        i++;
+    }
+    var[i]='\0';
+    return var;
 }

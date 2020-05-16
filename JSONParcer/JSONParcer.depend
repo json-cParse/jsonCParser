@@ -42,14 +42,14 @@
 	"readJSON.h"
 	"tempFunctions.h"
 
-1589614671 c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.h
+1589618664 c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.h
 	<stdbool.h>
 
 1589614671 c:\users\madalina\desktop\jsoncparser\jsonparcer\array.h
 
 1589614671 c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.h
 
-1589615110 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.c
+1589617429 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

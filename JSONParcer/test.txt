@@ -16,20 +16,20 @@
             "q1": {
                 "question": "5 + 7 = ?",
                 "options": [
-                    1.0,
-                    1.1,
-                    1.2,
-                    13.2
+                    true,
+                    false,
+                    false,
+                    true
                 ],
                 "answer": "12"
             },
             "q2": {
                 "question": "12 - 8 = ?",
                 "options": [
-                    "1",
-                    "2",
-                    "3",
-                    "4"
+                    null,
+                    null,
+                    null,
+                    null
                 ],
                 "answer": "4"
             }

@@ -81,7 +81,56 @@ struct dataTypes* createArray(FILE* fin,int* size)
                 }
             }
         }
+        else if ( c == 'f' || c == 't')
+        {
+            char* var= createBoolAndNull(c , fin);
+            if ( *size == 0)
+            {
+                temp->boolArray = (bool *) malloc(sizeof(bool));
+                assert(temp->boolArray != NULL);
 
+                if ( var[0] == 't')
+                    temp->boolArray[ *size ]= true;
+                else
+                     temp->boolArray[ *size ]= false;
+
+                printf("%d\n",temp->boolArray[*size]);
+                ( * size) ++;
+            }
+            else
+            {
+                temp->boolArray = (bool *) realloc(temp->boolArray , ((*size)+1) * sizeof (bool));
+                assert(temp->boolArray != NULL);
+
+                if ( var[0] == 't')
+                    temp->boolArray[ *size ]= true;
+                else
+                     temp->boolArray[ *size ]= false;
+
+                printf("%d\n",temp->boolArray[*size]);
+                ( * size) ++;
+            }
+        }
+        else if ( c == 'n')
+        {
+            char* var = createBoolAndNull(c , fin);
+            if ( *size == 0)
+            {
+                temp->nullArray = (bool *) malloc(sizeof(bool));
+                assert(temp->nullArray != NULL);
+                temp->nullArray[ *size ]= true;
+                printf("%d\n",temp->nullArray[*size]);
+                ( * size) ++;
+            }
+            else
+            {
+                temp->nullArray = (bool *) realloc(temp->nullArray , ((*size)+1) * sizeof (bool));
+                assert(temp->nullArray != NULL);
+                temp->nullArray[ *size ]= true;
+                printf("%d\n",temp->nullArray[*size]);
+                ( * size) ++;
+            }
+        }
     }
     return temp;
-};
+}

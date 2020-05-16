@@ -4,3 +4,4 @@
 int stringToInt(char*);
 double stringToDouble(char*);
 char* createNumber(char,bool*,FILE*);
+char* createBoolAndNull(char, FILE*);
