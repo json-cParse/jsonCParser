@@ -46,7 +46,7 @@ struct treeNode* newNode();
 
 ///addBro adauga un nod frate
 
-struct treeNode addBro(struct treeNode*);
+struct treeNode* addBro(struct treeNode*);
 
 ///addKid adauga un nod copil
 

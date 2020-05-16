@@ -17,7 +17,7 @@ char* createWord(FILE* fin)
     *temp = NULL;
     char c;
     int i=0;
-    while ( (c=fget(fin)) && c!= '"')
+    while ( (c=fgetc(fin)) && c!= '"')
         strcat(temp,&c);
     return temp;
 }

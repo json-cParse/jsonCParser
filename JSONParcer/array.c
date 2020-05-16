@@ -5,7 +5,8 @@
 #include <string.h>
 
 #include "data.h"
-#inclde "tempFunctions.h"
+#include "tempFunctions.h"
+#include "conversion.h"
 
 struct dataTypes* createArray(FILE* fin,int* size)
 {
@@ -35,6 +36,52 @@ struct dataTypes* createArray(FILE* fin,int* size)
                 (*size)++;
             }
         }
+        else if ( c >= '0' && c <= '9')
+        {
+            bool IntOrDouble=0;
+            char* number = createNumber(c , &IntOrDouble , fin);
+            printf("%s *****\n" , number);
+            printf("%d bool\n" , IntOrDouble);
+            if ( IntOrDouble == 0)
+            {
+                if ( *size == 0)
+                {
+                    temp->intArray = (int *) malloc(sizeof(int));
+                    assert(temp->intArray != NULL);
+                    temp->intArray[ *size ]= stringToInt(number);
+                    printf("%d int\n",temp->intArray[*size]);
+                    ( * size) ++;
+                }
+                else
+                {
+                    temp->intArray = (int *) realloc(temp->intArray , ((*size)+1) * sizeof (int));
+                    assert(temp->intArray != NULL);
+                    temp->intArray[ *size ]= stringToInt(number);
+                    printf("%d int\n",temp->intArray[*size]);
+                    ( * size) ++;
+                }
+            }
+            else
+            {
+                if ( *size == 0)
+                {
+                    temp->doubleArray = (double *) malloc(sizeof(double));
+                    assert(temp->doubleArray != NULL);
+                    temp->doubleArray[ *size ]= stringToDouble(number);
+                    printf("%f\n",temp->doubleArray[*size]);
+                    ( * size) ++;
+                }
+                else
+                {
+                    temp->doubleArray = (double *) realloc(temp->doubleArray , ((*size)+1) * sizeof (double));
+                    assert(temp->doubleArray != NULL);
+                    temp->doubleArray[ *size ]= stringToDouble(number);
+                    printf("%f\n",temp->doubleArray[*size]);
+                    ( * size) ++;
+                }
+            }
+        }
+
     }
     return temp;
 };

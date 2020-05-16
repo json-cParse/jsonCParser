@@ -31,6 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="JSONParcer.cbp" />
+		<Unit filename="JSONParcer.layout" />
+		<Unit filename="array.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="array.h" />
+		<Unit filename="conversion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="conversion.h" />
 		<Unit filename="data.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -45,6 +55,8 @@
 		<Unit filename="tempFunctions.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="tempFunctions.h" />
+		<Unit filename="test.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />

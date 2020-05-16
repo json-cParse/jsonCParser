@@ -22,7 +22,7 @@ double stringToDouble(char* s)
 {
     int n,p=1;
     double number=0, decimal=0;
-    n=streln(s)-1;
+    n=strlen(s)-1;
     while(s[n]!='.')
     {
         decimal=decimal+(s[n]-'0')*p;
@@ -46,7 +46,7 @@ double stringToDouble(char* s)
 char* createNumber(char s,bool* b,FILE* fin)
 {
     char c;
-    char* num, *sep=" ,\n";
+    char* num, *sep=" ,\t\n]";
     num=(char*)malloc(1000*sizeof(char));
     assert(num != NULL);
     num[0]=s;
@@ -61,8 +61,8 @@ char* createNumber(char s,bool* b,FILE* fin)
         i++;
         //strcat(num,&c);
         if(c == '.')
-            b=1;
+            (*b)=1;
     }
     num[i]='\0';
-    retrun num;
+    return num;
 }

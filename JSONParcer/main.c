@@ -12,6 +12,6 @@
 
 int main()
 {
-    readJson("test.json");
+    readJSON("test.txt");
     return 0;
 }

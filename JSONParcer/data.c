@@ -23,6 +23,15 @@ struct dataTypes
 
 };
 
+struct treeNode
+{
+    char* key; ///cheia elementului JSON
+
+    struct dataTypes* data;
+
+    struct treeNode* kid;
+    struct treeNode* bro;
+};
 
 struct tree
 {

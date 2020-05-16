@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1589615110 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\tempfunctions.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<string.h>
+	<stdbool.h>
+	"data.h"
+
+1589614997 c:\users\madalina\desktop\jsoncparser\jsonparcer\data.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1589616781 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+
+1589616940 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\array.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+	"data.h"
+	"tempFunctions.h"
+	"conversion.h"
+
+1589614797 c:\users\madalina\desktop\jsoncparser\jsonparcer\tempfunctions.h
+
+1589615224 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\main.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<stdbool.h>
+	"data.h"
+	"conversion.h"
+	"array.h"
+	"readJSON.h"
+	"tempFunctions.h"
+
+1589614671 c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.h
+	<stdbool.h>
+
+1589614671 c:\users\madalina\desktop\jsoncparser\jsonparcer\array.h
+
+1589614671 c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.h
+
+1589615110 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	"data.h"
+	"tempFunctions.h"
+
+1589615062 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\data.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+

@@ -6,7 +6,7 @@
 #include "data.h"
 #include "tempFunctions.h"
 
-#define stringSize30
+#define stringSize 30
 
 void readJSON(char* inputFile)
 {
@@ -21,7 +21,7 @@ void readJSON(char* inputFile)
 
 
     struct treeNode* curr=newNode();
-    while ( (c= fget(fin)) !=EOF)
+    while ( (c= fgetc(fin)) !=EOF)
     {
 
         if (c=='{')
@@ -59,8 +59,6 @@ void readJSON(char* inputFile)
             int arrS=0;
             curr->data = createArray(fin, &arrS);
             int i=0;
-            for (i=0; i < arrS; i++)
-                printf("arr: %s\n\n", curr->data->stringArray[i]);
         }
 
     }
