@@ -139,7 +139,7 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
                 //printf("CAR: %c \n", c);
 
             if(c == '"')
-        {
+            {
             if(*dim == 0)
             {
                 temp->stringArrayArr = (char***)malloc(sizeof(char**));
@@ -197,7 +197,123 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
             }
 
         }
-    }}
+        else if (c >= '0' && c <= '9')
+        {
+             bool IntOrDouble=0;
+                char* number = createNumber(c , &IntOrDouble , fin);
+                if(IntOrDouble == 0)
+                {
+                if(*dim == 0)
+                {
+                        temp->intArrayArr = (int**)malloc(sizeof(int*));
+                        assert(temp->intArrayArr != NULL);
+
+
+
+                        if(*size == 0)
+                        {
+                            temp->intArrayArr[*dim]=(int*)malloc(1*sizeof(int));
+                            assert(temp->intArrayArr[*dim] != NULL);
+                            temp->intArrayArr[*dim][*size]=stringToInt(number);
+                            printf("INT: ******%d\n",temp->intArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+                        else
+                        {
+                            temp->intArrayArr[*dim]=(int*)realloc(temp->intArrayArr[*dim],((*size)+1)*sizeof(int));
+                            assert(temp->intArrayArr[*dim] != NULL);
+                            temp->intArrayArr[*dim][*size]=stringToInt(number);
+                            printf("INT: ******%d\n",temp->intArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+
+                    (*dim)++;
+                }
+                else
+                {
+                    temp->intArrayArr = (int**)realloc(temp->intArrayArr, ((*dim)+1) * sizeof(int*));
+                    assert(temp->intArrayArr != NULL);
+
+
+                        if(*size == 0)
+                        {
+                            temp->intArrayArr[*dim]=(int*)malloc(1*sizeof(int));
+                            assert(temp->intArrayArr[*dim] != NULL);
+                            temp->intArrayArr[*dim][*size]=stringToInt(number);
+                            printf("INT: ******%d\n",temp->intArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+                        else
+                        {
+                            temp->intArrayArr[*dim]=(int*)realloc(temp->intArrayArr[*dim],((*size)+1)*sizeof(int));
+                            assert(temp->intArrayArr[*dim] != NULL);
+                            temp->intArrayArr[*dim][*size]=stringToInt(number);
+                            printf("INT: ******%d\n",temp->intArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+
+                    (*dim)++;
+                }
+            }
+            else
+            {
+                if(*dim == 0)
+                {
+                        temp->doubleArrayArr = (double**)malloc(sizeof(double*));
+                        assert(temp->doubleArrayArr != NULL);
+
+
+
+                        if(*size == 0)
+                        {
+                            temp->doubleArrayArr[*dim]=(double*)malloc(1*sizeof(double));
+                            assert(temp->doubleArrayArr[*dim] != NULL);
+                            temp->doubleArrayArr[*dim][*size]=stringToDouble(number);
+                            printf("DOUBLE: ******%f\n",temp->doubleArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+                        else
+                        {
+                            temp->doubleArrayArr[*dim]=(double*)realloc(temp->doubleArrayArr[*dim],((*size)+1)*sizeof(double));
+                            assert(temp->doubleArrayArr[*dim] != NULL);
+                            temp->doubleArrayArr[*dim][*size]=stringToDouble(number);
+                            printf("DOUBLE: ******%f\n",temp->doubleArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+
+                    (*dim)++;
+                }
+                else
+                {
+                    temp->doubleArrayArr = (double**)realloc(temp->doubleArrayArr, ((*dim)+1) * sizeof(double*));
+                    assert(temp->doubleArrayArr != NULL);
+
+
+                        if(*size == 0)
+                        {
+                            temp->doubleArrayArr[*dim]=(double*)malloc(1*sizeof(double));
+                            assert(temp->doubleArrayArr[*dim] != NULL);
+                            temp->doubleArrayArr[*dim][*size]=stringToDouble(number);
+                            printf("DOUBLE: ******%f\n",temp->doubleArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+                        else
+                        {
+                            temp->doubleArrayArr[*dim]=(double*)realloc(temp->doubleArrayArr[*dim],((*size)+1)*sizeof(double));
+                            assert(temp->doubleArrayArr[*dim] != NULL);
+                            temp->doubleArrayArr[*dim][*size]=stringToDouble(number);
+                            printf("DOUBLE: ******%f\n",temp->doubleArrayArr[*dim][*size]);
+                            (*size)++;
+                        }
+
+                    (*dim)++;
+                }
+            }
+
+        }
+    }
+
+    }
     else  continue;
     //else printf("\nAlt caz");
     }
