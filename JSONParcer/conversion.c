@@ -50,12 +50,12 @@ char* createNumber(char s,bool* b,FILE* fin)
     num=(char*)malloc(1000*sizeof(char));
     assert(num != NULL);
     num[0]=s;
-    printf("%s\n",num);
+    //printf("%s\n",num);
     int i=1;
     while(strchr(sep,(c = fgetc(fin))) == NULL)
     {
         num[i]=c;
-        printf("%s\n",num);
+        //printf("%s\n",num);
         i++;
         if(c == '.')
             (*b)=1;

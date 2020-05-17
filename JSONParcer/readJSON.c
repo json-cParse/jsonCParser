@@ -64,9 +64,11 @@ void readJSON(char* inputFile)
 
         if (c == '[')
         {
-            int arrS=0;
-            int dimS=0;
+            unsigned int arrS=0;
+            unsigned int dimS=0;
             curr->data = createArray(fin, &arrS, &dimS);
+            curr->data->sSize = arrS;
+            curr->data->dSize = dimS;
         }
 
     }

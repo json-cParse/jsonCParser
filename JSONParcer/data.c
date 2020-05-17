@@ -26,6 +26,9 @@ struct dataTypes
     bool** boolArrayArr; ///vector de vectori bool
     bool** nullArrayArr; ///vector de vectori null
 
+    unsigned int sSize; /// size pentru vectori
+    unsigned int dSize; /// size pentru vectori de vectori
+
 };
 
 struct treeNode
