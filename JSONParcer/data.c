@@ -101,3 +101,15 @@ bool isFileEmpty(FILE* fin)
         return true;
     return false;
 }
+
+/// freeTree elibereaza memoria
+/*void freeTree(struct treeNode* node)
+{
+    if(node == NULL)
+        return;
+    freeTree(node->kid);
+    freeTree(node->bro);
+    node->dad=NULL;
+    //if(node->data->stringArray != NULL)
+}*/
+
