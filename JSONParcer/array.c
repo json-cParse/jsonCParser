@@ -66,6 +66,7 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
             {
                 if(*size == 0)
                 {
+                    /// alocam memorie
                     temp->intArray = (int*)malloc(sizeof(int));
                     assert(temp->intArray != NULL);
 
@@ -78,6 +79,7 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
                 }
                 else
                 {
+                    /// realocam memorie
                     temp->intArray = (int*)realloc(temp->intArray, ((*size) + 1) * sizeof(int));
                     assert(temp->intArray != NULL);
 
@@ -93,6 +95,7 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
             {
                 if(*size == 0)
                 {
+                    /// alocam memorie
                     temp->doubleArray = (double*)malloc(sizeof(double));
                     assert(temp->doubleArray != NULL);
 
@@ -105,6 +108,7 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
                 }
                 else
                 {
+                    /// realocam memorie
                     temp->doubleArray = (double*)realloc(temp->doubleArray, ((*size) + 1) * sizeof(double));
                     assert(temp->doubleArray != NULL);
 
@@ -117,6 +121,73 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
                 }
             }
         } // acolada if(c >= '0' && c <= '9')
+        else if(c == 'f' || c == 't')
+        {
+            char *var = createBoolAndNull(c, fin);
+
+            if(*size == 0)
+            {
+                /// alocam memorie
+                temp->boolArray = (bool*)malloc(sizeof(bool));
+                assert(temp->boolArray != NULL);
+
+                if(var[0] == 't')
+                    temp->boolArray[*size] = true;
+                else
+                    temp->boolArray[*size] = false;
+
+                /// TEST
+                printf("\t BOOL simplu: %d\n", temp->boolArray[*size]);
+                (*size)++;
+            }
+            else
+            {
+                temp->boolArray = (bool*)realloc(temp->boolArray, ((*size) + 1) * sizeof(bool));
+                assert(temp->boolArray != NULL);
+
+                if(var[0] == 't')
+                    temp->boolArray[*size] = true;
+                else
+                    temp->boolArray[*size] = false;
+
+                /// TEST
+                printf("\t BOOL simplu: %d\n", temp->boolArray[*size]);
+                (*size)++;
+            }
+        } // acolada if(c == 'f' || c == 't')
+        else if(c == 'n')
+        {
+            char* var = createBoolAndNull(c, fin);
+
+            if(*size == 0)
+            {
+                /// alocam memorie
+                temp->nullArray = (bool*)malloc(sizeof(bool));
+                assert(temp->nullArray != NULL);
+
+                temp->nullArray[*size] = true;
+
+                /// TEST
+                printf("\t NULL simplu: %d\n", temp->nullArray[*size]);
+                (*size)++;
+            }
+            else
+            {
+                /// realocam memorie
+                temp->nullArray = (bool*)realloc(temp->nullArray, ((*size) + 1) * sizeof(bool));
+                assert(temp->nullArray != NULL);
+
+                temp->nullArray[*size] = true;
+
+                /// TEST
+                printf("\t NULL simplu: %d\n", temp->nullArray[*size]);
+                (*size)++;
+            }
+        } // acolada if(c == 'n')
+        else if(c == '[')
+        {
+
+        } // acolada if(c == '[')
     } // acolada while((c = fgetc(fin)) != ']')
 
     return temp;

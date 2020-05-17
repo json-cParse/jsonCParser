@@ -71,12 +71,12 @@ char* createBoolAndNull(char s, FILE* fin)
     var=(char*)malloc(1000*sizeof(char));
     assert(var != NULL);
     var[0]=s;
-    printf("%s\n",var);
+    //printf("%s\n",var);
     int i=1;
     while(strchr(sep,(c = fgetc(fin))) == NULL)
     {
         var[i]=c;
-        printf("%s\n",var);
+        //printf("%s\n",var);
         i++;
     }
     var[i]='\0';

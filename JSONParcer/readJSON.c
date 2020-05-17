@@ -69,6 +69,7 @@ void readJSON(char* inputFile)
             curr->data = createArray(fin, &arrS, &dimS);
             curr->data->sSize = arrS;
             curr->data->dSize = dimS;
+            printf("SIZE: %u\n\n", curr->data->sSize);
         }
 
     }
