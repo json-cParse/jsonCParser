@@ -17,14 +17,14 @@
                 "question": "5 + 7 = ?",
                 "options": [
                     [
-                        null,
-                        null,
-                        null
+                        "null",
+                        "null",
+                        "null"
                      ],
                     [
-                        null,
-                        null,
-                        null
+                        "null",
+                        "null",
+                        "null"
                      ]
                 ],
                 "answer": "12"

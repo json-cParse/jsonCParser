@@ -8,7 +8,7 @@
 #include "tempFunctions.h"
 #include "conversion.h"
 
-struct dataTypes* createArray(FILE* fin, int* size, int *dim)
+struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
 {
     struct dataTypes* temp ;
     temp =(struct dataTypes*)malloc(sizeof(struct dataTypes));
@@ -16,7 +16,9 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
 
     char c;
 
-    while((c = fgetc(fin)) != ']')
+    bool cond = true;
+
+    while((c = fgetc(fin)) != ']' && cond == true)
     {
         if(c == '"')
         {
@@ -184,10 +186,132 @@ struct dataTypes* createArray(FILE* fin, int* size, int *dim)
                 (*size)++;
             }
         } // acolada if(c == 'n')
-        else if(c == '[')
+        /*else if(c == '[')
         {
+            while((c = fgetc(fin)) != ']')
+            {
+                if(c == '"')
+                {
+                    *size = 0;
+                    printf("SIZE %u DIM %u\n\n", *size, *dim);
+                    if(*dim == 0)
+                    {
+                        /// alocam memorie pentru vectorul mare
+                        temp->stringArrayArr = (char***)malloc(sizeof(char**));
+                        assert(temp->stringArrayArr != NULL);
 
-        } // acolada if(c == '[')
+                        /// alocam memorie pentru vectorul de dimensiuni
+                        temp->dsSize = (unsigned int*)malloc(sizeof(unsigned int));
+                        assert(temp->dsSize != NULL);
+
+                        while((c = fgetc(fin)) != ']')
+                        {
+                            if(c != ' ')
+                                printf("CAR DIM=0 %c\n\n", c);
+                            printf("SIZE %u DIM %u\n\n", *size, *dim);
+                            if(*size == 0)
+                            {
+                                /// alocam memorie pentru vectorul mic
+                                temp->stringArrayArr[*dim] = (char**)malloc(sizeof(char*));
+                                assert(temp->stringArrayArr[*dim] != NULL);
+
+                                /// alocam memorie pentru string
+                                temp->stringArrayArr[*dim][*size] = (char*)malloc(1000 * sizeof(char));
+                                assert(temp->stringArrayArr[*dim][*size] != NULL);
+
+                                /// apelam createWord() si atribuim stringul
+                                temp->stringArrayArr[*dim][*size] = createWord(fin);
+
+                                /// TEST
+                                printf("\t STRING dublu: %s\n", temp->stringArrayArr[*dim][*size]);
+
+                                (*size)++;
+                            }
+                            else
+                            {
+                                /// realocam memorie pentru vectorul mic
+                                temp->stringArrayArr[*dim] = (char**)realloc(temp->stringArrayArr, ((*size) + 1) * sizeof(char*));
+                                assert(temp->stringArrayArr[*dim] != NULL);
+
+                                /// alocam memorie pentru string
+                                temp->stringArrayArr[*dim][*size] = (char*)malloc(1000 * sizeof(char));
+                                assert(temp->stringArrayArr[*dim][*size] != NULL);
+
+                                /// apelam createWord() si atribuim stringul
+                                temp->stringArrayArr[*dim][*size] = createWord(fin);
+
+                                /// TEST
+                                printf("\t STRING dublu: %s\n", temp->stringArrayArr[*dim][*size]);
+
+                                (*size)++;
+                            }
+                        } // acolada while mic
+
+                        temp->dsSize[*dim] = *size;
+                        (*dim)++;
+
+                    }   // acolada *dim == 0
+                    else
+                    {
+                        printf("Am intrat in else!!\n");
+                        /// realocam memorie pentru vectorul mare
+                        temp->stringArrayArr = (char***)realloc(temp->stringArrayArr, ((*dim) + 1) * sizeof(char**));
+                        assert(temp->stringArrayArr != NULL);
+
+                        /// realocam memorie pentru vectorul de dimensiuni
+                        temp->dsSize = (unsigned int*)realloc(temp->dsSize, ((*dim) + 1) * sizeof(unsigned int));
+                        assert(temp->dsSize != NULL);
+
+                        while((c = fgetc(fin)) != ']')
+                        {
+                            if(c != ' ')
+                                printf("CAR DIM!=0 %c", c);
+                            printf("SIZE %u DIM %u\n\n", *size, *dim);
+                            if(*size == 0)
+                            {
+                                /// alocam memorie pentru vectorul mic
+                                temp->stringArrayArr[*dim] = (char**)malloc(sizeof(char*));
+                                assert(temp->stringArrayArr[*dim] != NULL);
+
+                                /// alocam memorie pentru string
+                                temp->stringArrayArr[*dim][*size] = (char*)malloc(1000 * sizeof(char));
+                                assert(temp->stringArrayArr[*dim][*size] != NULL);
+
+                                /// apelam createWord() si atribuim stringul
+                                temp->stringArrayArr[*dim][*size] = createWord(fin);
+
+                                /// TEST
+                                printf("\t STRING dublu: %s\n", temp->stringArrayArr[*dim][*size]);
+
+                                (*size)++;
+                            }
+                            else
+                            {
+                                /// realocam memorie pentru vectorul mic
+                                temp->stringArrayArr[*dim] = (char**)realloc(temp->stringArrayArr, ((*size) + 1) * sizeof(char*));
+                                assert(temp->stringArrayArr[*dim] != NULL);
+
+                                /// alocam memorie pentru string
+                                temp->stringArrayArr[*dim][*size] = (char*)malloc(1000 * sizeof(char));
+                                assert(temp->stringArrayArr[*dim][*size] != NULL);
+
+                                /// apelam createWord() si atribuim stringul
+                                temp->stringArrayArr[*dim][*size] = createWord(fin);
+
+                                /// TEST
+                                printf("\t STRING dublu: %s\n", temp->stringArrayArr[*dim][*size]);
+
+                                (*size)++;
+                            }
+                        } // acolada while mic
+
+                        temp->dsSize[*dim] = *size;
+                        (*dim)++;
+                    }
+                } // acolada if(c == '"')
+            } // while vector mic
+            cond = false;
+        } // acolada if(c == '[')*/
     } // acolada while((c = fgetc(fin)) != ']')
 
     return temp;

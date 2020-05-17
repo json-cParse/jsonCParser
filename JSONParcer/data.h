@@ -8,14 +8,15 @@
 
 struct dataTypes
 {
-    int intVal; ///valoare int
+    int intVal; /// valoare int
     double doubleVal; ///valoare double
-    char* String; ///valoare string
+    char* string; ///valoare string
     bool boolVal; ///valoare bool
-    bool nullVal; ///valoare null (daca elementul este de tip null, nullVal=1)
+    bool nullVal; ///valoare null ( daca elementul este de tip null, nullVal=1)
 
+    unsigned int sSize; /// size pentru vectori
     int* intArray; ///vector int
-    double* doubleArray; ///vector double
+    double* doubleArray; ///vector de double
     char** stringArray; ///vector string
     bool* boolArray; ///vector bool
     bool* nullArray; ///vector null
@@ -26,8 +27,8 @@ struct dataTypes
     bool** boolArrayArr; ///vector de vectori bool
     bool** nullArrayArr; ///vector de vectori null
 
-    unsigned int sSize; /// size pentru vectori
-    unsigned int dSize; /// size pentru vectori de vectori
+    unsigned int dSize; /// size pentru numarul de vectori
+    unsigned int* dsSize; /// size pentru fiecare vector din vectorul mare
 };
 
 struct tree
