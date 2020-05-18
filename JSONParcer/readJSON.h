@@ -1,3 +1,3 @@
 #pragma once
 
-void readJSON(char*);
+void readJSON(struct treeNode* , FILE*);

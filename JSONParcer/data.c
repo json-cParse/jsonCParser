@@ -10,7 +10,7 @@ struct dataTypes
 {
     int intVal; /// valoare int
     double doubleVal; ///valoare double
-    char* string; ///valoare string
+    char* String; ///valoare string
     bool boolVal; ///valoare bool
     bool nullVal; ///valoare null ( daca elementul este de tip null, nullVal=1)
 

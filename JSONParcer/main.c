@@ -12,6 +12,14 @@
 
 int main()
 {
-    readJSON("test.txt");
+    struct treeNode* root = newNode();
+    root->key = "root";
+
+    char c;
+    FILE* fin = fopen("test.txt" , "r");
+
+    c = fgetc(fin);
+
+    readJSON(root , fin);
     return 0;
 }
