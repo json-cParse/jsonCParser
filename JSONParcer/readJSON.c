@@ -12,25 +12,60 @@
 void readJSON(struct treeNode* node , FILE* fin)
 {
     char c;
+    bool cond = false;
+    struct treeNode* DAD = node;
+    struct treeNode* currNode;
     while ((c = fgetc(fin)) && c != '}')
     {
+
+        /*if(c != ' ')
+            printf("**CAR:%c\n", c);*/
+
         char* word;
-        if ( c == '"' )
+
+        if(c == '"')
+         {
+             word = createWord(fin);
+             //printf("\t\t CUVANT:%s\n", word);
+             //printf("%s PARINTE\n", node->key);
+               /* if (cond == true && currNode->kid == NULL)
+                {
+                    printf("AM INTRAT\n");
+                    currNode->data->String = word;
+
+                    printf("\t ++nodul %s are STRINGUL %s\n", currNode->key, currNode->data->String);
+                    cond = false;
+                }*/
+
+            }
+
+
+        if ( c == ':')
         {
-            word = createWord(fin);
+
+            if(node->kid == NULL)
+            {
+                addKid(&node);
+                currNode = node->kid;
+            }
+            else
+            {
+                addBro(&node);
+                currNode = node->bro;
+            }
+
+                currNode->key = word;
+                cond = true;
+
+            currNode->dad = DAD;
+            //cond = true;
+            printf(" nodul %s are ca parinte nodul %s\n\n" ,  currNode->key , currNode->dad->key);
         }
 
-        if ( c == ':' )
-        {
-            node->kid = addKid(node);
-            node->kid->key = word;
-            node->kid->dad = node;
-
-            printf(" nodul %s are ca parinte nodul %s\n\n" ,  node->kid->key , node->kid->dad->key);
-        }
 
         if( c == '{')
-            readJSON(node->kid , fin);
+            readJSON(currNode , fin);
+
 
     }
 }

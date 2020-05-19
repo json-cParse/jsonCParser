@@ -21,5 +21,11 @@ int main()
     c = fgetc(fin);
 
     readJSON(root , fin);
+
+    printf("\n%s\n\n", root->kid->kid->key);
+
+    printf("\n\n\nNODURI\n");
+    int i = 0;
+    printTree(root);
     return 0;
 }

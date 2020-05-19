@@ -65,33 +65,44 @@ struct treeNode* newNode()
 
 ///addBro adauga un nod frate
 
-struct treeNode* addBro(struct treeNode* node)
+void addBro(struct treeNode** node)
 {
-    if (node == NULL)
-        return NULL;
+    if (*node == NULL)
+        return;
 
-    while (node->bro)
-        node = node->bro;
+    while ((*node)->bro)
+        *node = (*node)->bro;
 
-    node->bro = newNode();
+    (*node)->bro = newNode();
 
-    return node->bro;
+    //return node->bro;
 }
 
 ///addKid adauga un nod copil
 
-struct treeNode* addKid(struct treeNode* node)
+void addKid(struct treeNode** node)
 {
-    if (node ==NULL)
-        return NULL;
+    if (*node ==NULL)
+        return;
 
-    if (node->kid != NULL )
-        return addBro(node->kid);
+   /* if ((*node)->kid != NULL )
+        addBro((*node)->kid);*/
 
-    node->kid=newNode();
-    return node->kid;
+    (*node)->kid=newNode();
+    //return node->kid;
 }
 
+
+void printTree(struct treeNode *node)
+{
+    if(node != NULL)
+    {
+        printf("%s\n", node->key);
+
+        printTree(node->kid);
+        printTree(node->bro);
+    }
+}
 
 ///isFileEmpty verifica daca fisierul este gol
 

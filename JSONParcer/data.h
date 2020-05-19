@@ -56,12 +56,14 @@ struct treeNode* newNode();
 
 ///addBro adauga un nod frate
 
-struct treeNode* addBro(struct treeNode*);
+struct treeNode* addBro(struct treeNode**);
 
 ///addKid adauga un nod copil
 
-struct treeNode* addKid(struct treeNode*);
+struct treeNode* addKid(struct treeNode**);
 
 ///isFileEmpty verifica daca fisierul este gol
 
 bool isFileEmpty(FILE*);
+
+void printTree(struct treeNode *);
