@@ -12,7 +12,7 @@
 void readJSON(struct treeNode* node , FILE* fin)
 {
     char c;
-    bool cond = false;
+//    bool cond = false;
     struct treeNode* DAD = node;
     struct treeNode* currNode;
     while ((c = fgetc(fin)) && c != '}')
@@ -55,11 +55,11 @@ void readJSON(struct treeNode* node , FILE* fin)
             }
 
                 currNode->key = word;
-                cond = true;
+            //    cond = true;
 
             currNode->dad = DAD;
             //cond = true;
-            printf(" nodul %s are ca parinte nodul %s\n\n" ,  currNode->key , currNode->dad->key);
+           printf(" nodul %s are ca parinte nodul %s\n\n" ,  currNode->key , currNode->dad->key);
         }
 
 
@@ -69,3 +69,44 @@ void readJSON(struct treeNode* node , FILE* fin)
 
     }
 }
+
+void addData(struct treeNode* node, FILE* fin)
+{
+    struct treeNode* currNode;
+    currNode = node;
+    char c;
+    char* word;
+    bool cond = 0;
+    while ( (c= fgetc(fin)) != EOF)
+        {
+            printf("%c",c);
+            if ( c == ':')
+                cond = 1 ;
+            if ( c == '{' && cond == 1)
+             {  currNode = currNode->kid;
+                cond=0;
+                printf("%s ", currNode->key);
+                printf("NOZYSHOR:  %s ", currNode->key);
+             }
+            if ( c == '"' && cond ==1)
+              {
+                  word = createWord(fin);
+                  cond = 0;
+                  currNode->data->String= word;
+                printf("STRING ~~~~~~~~~ : %s", currNode->data->String);
+              }
+            if ( c == ',')
+            {   printf("KUR BRO KEY : %s" , currNode->bro->key);
+          //     printf(" ~~~~~~~~ KUR kid BRO KEY : %s" , currNode->bro->kid->key);
+                currNode = currNode->bro;
+                printf(" NOD :%s ", currNode->key);
+
+            }
+            if ( c == '}')
+            {   printf(" KUR NOD TATA KEY: %s", currNode->dad->key );
+                currNode= currNode->dad;
+                printf("NODULETS: %s ", currNode->key);
+            }
+        }
+}
+

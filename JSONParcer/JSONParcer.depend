@@ -194,3 +194,68 @@
 	"tempFunctions.h"
 	"array.h"
 
+1590076493 source:c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\array.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+	"data.h"
+	"tempFunctions.h"
+	"conversion.h"
+
+1590081838 c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\data.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1590076493 c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\tempfunctions.h
+
+1590076493 c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\conversion.h
+	<stdbool.h>
+
+1590076493 source:c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\conversion.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+
+1590081360 source:c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\data.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+
+1590081838 source:c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\main.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<stdbool.h>
+	"data.h"
+	"conversion.h"
+	"array.h"
+	"readJSON.h"
+	"tempFunctions.h"
+
+1590076493 c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\array.h
+
+1590077924 c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\readjson.h
+
+1590076493 source:c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\tempfunctions.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<string.h>
+	<stdbool.h>
+	"data.h"
+
+1590081420 source:c:\users\yonce\desktop\usoo\jsoncparser\jsonparcer\readjson.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	"data.h"
+	"tempFunctions.h"
+	"array.h"
+

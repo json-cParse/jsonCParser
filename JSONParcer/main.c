@@ -20,12 +20,12 @@ int main()
 
     c = fgetc(fin);
 
-    readJSON(root , fin);
-
-    printf("\n%s\n\n", root->kid->kid->key);
-
-    printf("\n\n\nNODURI\n");
+   readJSON(root , fin);
+    fseek(fin,0,SEEK_SET);
+   // printf("\n%s\n\n", root->kid->kid->key);
+   // printf("\n\n\nNODURI\n");
     int i = 0;
-    printTree(root);
+    printInfo(root);
+   // addData(root,fin);
     return 0;
 }

@@ -98,12 +98,26 @@ void printTree(struct treeNode *node)
     if(node != NULL)
     {
         printf("%s\n", node->key);
-
         printTree(node->kid);
         printTree(node->bro);
     }
 }
 
+void printInfo(struct treeNode *node)
+{
+    if(node != NULL)
+    {
+        printf("%s : \n",node->key);
+        if (node->dad != NULL)
+            printf("\t dad: %s \n", node->dad->key);
+        if (node->kid != NULL)
+            printf("\t kid: %s \n", node->kid->key);
+        if (node->bro != NULL)
+            printf("\t BRUH: %s \n", node->bro->key);
+        printInfo(node->kid);
+        printInfo(node->bro);
+    }
+}
 ///isFileEmpty verifica daca fisierul este gol
 
 bool isFileEmpty(FILE* fin)

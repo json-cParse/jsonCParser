@@ -67,3 +67,4 @@ struct treeNode* addKid(struct treeNode**);
 bool isFileEmpty(FILE*);
 
 void printTree(struct treeNode *);
+void printInfo(struct treeNode *);

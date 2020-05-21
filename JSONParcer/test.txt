@@ -5,8 +5,7 @@
                 "question": "Which one is correct team name in NBA?",
                 "answer": "Huston Rocket",
                 "error": "404",
-                "error": "404 404",
-                "error": "404 404 404"
+                "error": "404 404"
             }
         },
         "maths": {
