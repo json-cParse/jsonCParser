@@ -56,11 +56,11 @@ struct treeNode* newNode();
 
 ///addBro adauga un nod frate
 
-struct treeNode* addBro(struct treeNode**);
+struct treeNode* addBro(struct treeNode**, char*, struct treeNode*);
 
 ///addKid adauga un nod copil
 
-struct treeNode* addKid(struct treeNode**);
+struct treeNode* addKid(struct treeNode**, char*, struct treeNode*);
 
 ///isFileEmpty verifica daca fisierul este gol
 

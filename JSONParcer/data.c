@@ -65,7 +65,7 @@ struct treeNode* newNode()
 
 ///addBro adauga un nod frate
 
-void addBro(struct treeNode** node)
+void addBro(struct treeNode** node, char* word, struct treeNode* DAD)
 {
     if (*node == NULL)
         return;
@@ -74,13 +74,15 @@ void addBro(struct treeNode** node)
         *node = (*node)->bro;
 
     (*node)->bro = newNode();
+    (*node)->bro->key = word;
+    (*node)->bro->dad = DAD;
 
     //return node->bro;
 }
 
 ///addKid adauga un nod copil
 
-void addKid(struct treeNode** node)
+void addKid(struct treeNode** node, char* word, struct treeNode* DAD)
 {
     if (*node ==NULL)
         return;
@@ -89,6 +91,8 @@ void addKid(struct treeNode** node)
         addBro((*node)->kid);*/
 
     (*node)->kid=newNode();
+    (*node)->kid->key = word;
+    (*node)->kid->dad = DAD;
     //return node->kid;
 }
 

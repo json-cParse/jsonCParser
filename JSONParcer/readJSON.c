@@ -45,21 +45,18 @@ void readJSON(struct treeNode* node , FILE* fin)
 
             if(node->kid == NULL)
             {
-                addKid(&node);
+                addKid(&node, word, DAD);
                 currNode = node->kid;
             }
             else
             {
-                addBro(&node);
+                node = node->kid;
+                addBro(&node, word, DAD);
                 currNode = node->bro;
+                node = node->dad;
             }
 
-                currNode->key = word;
-            //    cond = true;
-
-            currNode->dad = DAD;
-            //cond = true;
-           printf(" nodul %s are ca parinte nodul %s\n\n" ,  currNode->key , currNode->dad->key);
+          // printf(" nodul %s are ca parinte nodul %s\n\n" ,  currNode->key , currNode->dad->key);
         }
 
 
