@@ -8,7 +8,7 @@
 #include "tempFunctions.h"
 #include "conversion.h"
 
-struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
+struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
 {
     struct dataTypes* temp ;
     temp =(struct dataTypes*)malloc(sizeof(struct dataTypes));
@@ -21,7 +21,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
     while((c = fgetc(fin)) != ']' && cond == true)
     {
         if(c == '"')
-        {
+        { *type = 0;
             if(*size == 0)
             {
                 /// alocam memorie
@@ -36,7 +36,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                 temp->stringArray[*size] = createWord(fin);
 
                 ///TEST
-                printf("\t STRING simplu: %s\n", temp->stringArray[*size]);
+               // printf("\t STRING simplu: %s\n", temp->stringArray[*size]);
                 (*size)++;
             }
             else
@@ -53,7 +53,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                 temp->stringArray[*size] = createWord(fin);
 
                 ///TEST
-                printf("\t STRING simplu: %s\n", temp->stringArray[*size]);
+               // printf("\t STRING simplu: %s\n", temp->stringArray[*size]);
                 (*size)++;
 
             }
@@ -76,7 +76,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                     temp->intArray[*size] = stringToInt(number);
 
                     /// TEST
-                    printf("\t INT simplu: %d\n", temp->intArray[*size]);
+                    //printf("\t INT simplu: %d\n", temp->intArray[*size]);
                     (*size)++;
                 }
                 else
@@ -89,7 +89,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                     temp->intArray[*size] = stringToInt(number);
 
                     /// TEST
-                    printf("\t INT simplu: %d\n", temp->intArray[*size]);
+                    //printf("\t INT simplu: %d\n", temp->intArray[*size]);
                     (*size)++;
                 }
             }
@@ -105,7 +105,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                     temp->doubleArray[*size] = stringToDouble(number);
 
                     /// TEST
-                    printf("\t DOUBLE simplu: %f\n", temp->doubleArray[*size]);
+                    //printf("\t DOUBLE simplu: %f\n", temp->doubleArray[*size]);
                     (*size)++;
                 }
                 else
@@ -118,13 +118,17 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                     temp->doubleArray[*size] = stringToDouble(number);
 
                     /// TEST
-                    printf("\t DOUBLE simplu: %f\n", temp->doubleArray[*size]);
+                    //printf("\t DOUBLE simplu: %f\n", temp->doubleArray[*size]);
                     (*size)++;
                 }
             }
+            if(intOrDouble == 0)
+                *type = 1;
+            else *type = 2;
         } // acolada if(c >= '0' && c <= '9')
         else if(c == 'f' || c == 't')
         {
+            *type = 3;
             char *var = createBoolAndNull(c, fin);
 
             if(*size == 0)
@@ -139,7 +143,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                     temp->boolArray[*size] = false;
 
                 /// TEST
-                printf("\t BOOL simplu: %d\n", temp->boolArray[*size]);
+                //printf("\t BOOL simplu: %d\n", temp->boolArray[*size]);
                 (*size)++;
             }
             else
@@ -153,12 +157,13 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                     temp->boolArray[*size] = false;
 
                 /// TEST
-                printf("\t BOOL simplu: %d\n", temp->boolArray[*size]);
+                //printf("\t BOOL simplu: %d\n", temp->boolArray[*size]);
                 (*size)++;
             }
         } // acolada if(c == 'f' || c == 't')
         else if(c == 'n')
         {
+            *type = 4;
             char* var = createBoolAndNull(c, fin);
 
             if(*size == 0)
@@ -170,7 +175,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                 temp->nullArray[*size] = true;
 
                 /// TEST
-                printf("\t NULL simplu: %d\n", temp->nullArray[*size]);
+                //printf("\t NULL simplu: %d\n", temp->nullArray[*size]);
                 (*size)++;
             }
             else
@@ -182,7 +187,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *dim)
                 temp->nullArray[*size] = true;
 
                 /// TEST
-                printf("\t NULL simplu: %d\n", temp->nullArray[*size]);
+                //printf("\t NULL simplu: %d\n", temp->nullArray[*size]);
                 (*size)++;
             }
         } // acolada if(c == 'n')

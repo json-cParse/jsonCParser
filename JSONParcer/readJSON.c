@@ -74,36 +74,85 @@ void addData(struct treeNode* node, FILE* fin)
     char c;
     char* word;
     bool cond = 0;
+    int size=0,type=0;
     while ( (c= fgetc(fin)) != EOF)
-        {
-            printf("%c",c);
+       {
+
             if ( c == ':')
                 cond = 1 ;
-            if ( c == '{' && cond == 1)
-             {  currNode = currNode->kid;
+            if ( c == '{')
+             {
+                printf("Sunt in nodul %s: \n",currNode->key);
+                currNode = currNode->kid;
                 cond=0;
-                printf("%s ", currNode->key);
-                printf("NOZYSHOR:  %s ", currNode->key);
-             }
+                printf("M-am mutat in nodul %s: \n", currNode->key);
+              }
             if ( c == '"' && cond ==1)
               {
                   word = createWord(fin);
                   cond = 0;
                   currNode->data->String= word;
-                printf("STRING ~~~~~~~~~ : %s", currNode->data->String);
+                  printf("%s: STRING ~~~~~~~~~ : %s\n",currNode->key, currNode->data->String);
+                  if(currNode->bro != NULL)
+                     currNode= currNode->bro;
               }
-            if ( c == ',')
-            {   printf("KUR BRO KEY : %s" , currNode->bro->key);
+           /* if ( c == ',')
+            {  // printf("Am intrat\n");
+               // printf("KUR BRO KEY : %s" , currNode->bro->key);
           //     printf(" ~~~~~~~~ KUR kid BRO KEY : %s" , currNode->bro->kid->key);
                 currNode = currNode->bro;
-                printf(" NOD :%s ", currNode->key);
+              //  printf(" NOD :%s ", currNode->key);
 
+            }*/
+            if ( c == 'n' && cond == 1)
+            {
+               currNode->data->nullVal = 1;
+               cond = 0;
+               printf("%s: nullVal: %d\n",currNode->key, currNode->data->nullVal);
+               if(currNode->bro != NULL)
+                    currNode= currNode->bro;
+            }
+            if ( (c == 't' || c == 'f') && cond == 1)
+            {
+               if ( c == 't')
+                    currNode->data->boolVal = true;
+               else currNode->data->boolVal = false;
+               cond = 0;
+               printf("%s: boolVal: %d\n",currNode->key, currNode->data->boolVal);
+               if(currNode->bro != NULL)
+                    currNode= currNode->bro;
+            }
+            if ( c == '[' && cond == 1)
+            {
+                currNode->data = createArray(fin,&size,&type);
+                cond = 0;
+                printf("%s: ",currNode->key);
+                if( type == 0)
+                    for(int i=0; i< size; i++)
+                       printf("%s ",currNode->data->stringArray[i]);
+                else if(type == 1)
+                    for(int i=0; i< size; i++)
+                       printf("%d ",currNode->data->intArray[i]);
+                else if(type == 2)
+                    for(int i=0; i< size; i++)
+                       printf("%f ",currNode->data->doubleArray[i]);
+                else if(type == 3)
+                    for(int i=0; i< size; i++)
+                       printf("%d ",currNode->data->boolArray[i]);
+                else if(type == 4)
+                    for(int i=0; i< size; i++)
+                       printf("%d ",currNode->data->nullArray[i]);
+                printf("\n");
+                if(currNode->bro != NULL)
+                    currNode= currNode->bro;
             }
             if ( c == '}')
-            {   printf(" KUR NOD TATA KEY: %s", currNode->dad->key );
+            {
                 currNode= currNode->dad;
-                printf("NODULETS: %s ", currNode->key);
+                if(currNode->bro != NULL)
+                    currNode= currNode->bro;
+                cond = 0;
             }
-        }
+      }
 }
 

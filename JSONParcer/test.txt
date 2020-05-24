@@ -4,18 +4,26 @@
             "q1": {
                 "question": "Which one is correct team name in NBA?",
                 "answer": "Huston Rocket",
-                "error1": "404",
-                "error2": "404 404"
+                "error1": true,
+                "error2": [
+                     "sper",
+                     "ca",
+                     "merge"
+                     ]
             }
-        },
+           },
         "maths": {
-            "q1": {
-                "question": "5 + 7 = ?",
-                "answer": "12"
+            "Q1": {
+                "intrebare": "5 + 7 = ?",
+                "answer": [
+                    1,
+                    2,
+                    3
+                    ]
             },
-            "q2": {
-                "question": "12 - 8 = ?",
-                "answer": "4"
+            "Q2": {
+                 "intrebare": "6 + 3 = ?",
+                "answer": false
             }
         }
     }

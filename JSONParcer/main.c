@@ -24,8 +24,8 @@ int main()
     fseek(fin,0,SEEK_SET);
    // printf("\n%s\n\n", root->kid->kid->key);
    // printf("\n\n\nNODURI\n");
-    int i = 0;
-    printInfo(root);
-   // addData(root,fin);
+   // int i = 0;
+   // printInfo(root);
+    addData(root,fin);
     return 0;
 }
