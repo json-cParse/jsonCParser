@@ -77,7 +77,7 @@ void addData(struct treeNode* node, FILE* fin)
     int size=0,type=0;
     while ( (c= fgetc(fin)) != EOF)
        {
-
+            printf("%c",c);
             if ( c == ':')
                 cond = 1 ;
             if ( c == '{')
@@ -124,6 +124,7 @@ void addData(struct treeNode* node, FILE* fin)
             }
             if ( c == '[' && cond == 1)
             {
+                size = 0;
                 currNode->data = createArray(fin,&size,&type);
                 cond = 0;
                 printf("%s: ",currNode->key);
