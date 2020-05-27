@@ -7,6 +7,7 @@
 #include "conversion.h"
 #include "array.h"
 #include "readJSON.h"
+#include "printJSON.h"
 
 
 
@@ -24,16 +25,16 @@ int main()
     fseek(fin,0,SEEK_SET);
    // printf("\n%s\n\n", root->kid->kid->key);
    // printf("\n\n\nNODURI\n");
-   // int i = 0;
-   // printInfo(root);
-   addData(root,fin);
-   printJSON(fout, root);
+    unsigned int i = 0;
+   printTree(root, &i);
+   /*//addData(root,fin);
+   printParsedData(fout, root);
    struct dataTypes* data;
    data->intVal = 1;
     //addJSON(&root, data, "info");
-    printJSON(fout, root);
+    printParsedData(fout, root);
    fclose(fin);
-   fclose(fout);
+   fclose(fout);*/
     return 0;
 }
 

@@ -117,6 +117,6 @@ char* createWord(FILE* fin)
         temp[i] = c;
         i++;
     }
-
+    temp[i] = NULL;
     return temp;
 }

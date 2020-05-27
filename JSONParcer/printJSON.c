@@ -1,34 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <assert.h>
 
 #include "data.h"
-#include "array.h"
 
-#define stringSize 30
 
-void printTree(struct treeNode *node)
+/* printTree() afiseaza nodurile, alaturi de indexul acestuia (numarul de ordine) */
+void printTree(struct treeNode* node, unsigned int* index)
 {
     if(node != NULL)
     {
-        printf("%s\n", node->key);
-        printTree(node->kid);
-        printTree(node->bro);
+        printf("%d, %s\n", *index, node->key);
+        (*index)++;
+
+        printTree(node->kid, index);
+        printTree(node->bro, index);
     }
 }
 
-void printInfo(FILE* fout , struct treeNode *node)
+/* printParsedData() afiseaza intr-un fisier fisierul JSON parsat */
+void printParsedData(FILE* fout , struct treeNode* node)
 {
     if(node != NULL)
     {
         fprintf(fout , "Obiectul %s are: \n" , node->key);
+
         if (node->dad != NULL)
             fprintf(fout , "\t Tatal: %s \n", node->dad->key);
+
         if (node->kid != NULL)
             fprintf(fout , "\t Copilul: %s \n", node->kid->key);
+
         if (node->bro != NULL)
             fprintf(fout , "\t Fratele: %s \n", node->bro->key);
+
         if (node->kid == NULL)
         {
             ///cazuri elemente simple
@@ -55,16 +59,9 @@ void printInfo(FILE* fout , struct treeNode *node)
             if (node->data->nullArray != NULL)
                 fprintf(fout, "Elementul contine un VECTOR DE NULL\n");
         }
+
         fprintf(fout, "\n");
-        printInfo(fout, node->kid);
-        printInfo(fout, node->bro);
+        printParsedData(fout, node->kid);
+        printParsedData(fout, node->bro);
     }
-}
-
-///Afiseaza datele intr-un fisier
-void printJSON (FILE* fout , struct treeNode* node)
-{
-    fprintf(fout , "Structura si relatiile din fisierul JSON:\n\n");
-    printInfo(fout, node);
-
 }
