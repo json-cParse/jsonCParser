@@ -4,7 +4,7 @@
 #include <assert.h>
 
 #include "data.h"
-#include "tempFunctions.h"
+#include "conversion.h"
 #include "array.h"
 
 #define stringSize 30
@@ -77,24 +77,26 @@ void addData(struct treeNode* node, FILE* fin)
     int size=0,type=0;
     while ( (c= fgetc(fin)) != EOF)
        {
-            printf("%c",c);
+            //printf("%c",c);
             if ( c == ':')
                 cond = 1 ;
             if ( c == '{')
              {
-                printf("Sunt in nodul %s: \n",currNode->key);
-                currNode = currNode->kid;
+                 node->data = (struct dataTypes*)malloc(sizeof(struct dataTypes));
+                printf("Sunt in nodul %s: \n",node->key);
+                node = node->kid;
                 cond=0;
-                printf("M-am mutat in nodul %s: \n", currNode->key);
+                printf("M-am mutat in nodul %s: \n", node->key);
               }
             if ( c == '"' && cond ==1)
               {
                   word = createWord(fin);
                   cond = 0;
-                  currNode->data->String= word;
-                  printf("%s: STRING ~~~~~~~~~ : %s\n",currNode->key, currNode->data->String);
-                  if(currNode->bro != NULL)
-                     currNode= currNode->bro;
+
+                  node->data->String= word;
+                  printf("%s: STRING ~~~~~~~~~ : %s\n",node->key, node->data->String);
+                  if(node->bro != NULL)
+                     node= node->bro;
               }
            /* if ( c == ',')
             {  // printf("Am intrat\n");
@@ -106,52 +108,56 @@ void addData(struct treeNode* node, FILE* fin)
             }*/
             if ( c == 'n' && cond == 1)
             {
-               currNode->data->nullVal = 1;
+
+               node->data->nullVal = 1;
                cond = 0;
-               printf("%s: nullVal: %d\n",currNode->key, currNode->data->nullVal);
-               if(currNode->bro != NULL)
-                    currNode= currNode->bro;
+               printf("%s: nullVal: %d\n",node->key, node->data->nullVal);
+               if(node->bro != NULL)
+                    node= node->bro;
             }
             if ( (c == 't' || c == 'f') && cond == 1)
             {
+
                if ( c == 't')
-                    currNode->data->boolVal = true;
-               else currNode->data->boolVal = false;
+                    node->data->boolVal = true;
+               else node->data->boolVal = false;
                cond = 0;
-               printf("%s: boolVal: %d\n",currNode->key, currNode->data->boolVal);
-               if(currNode->bro != NULL)
-                    currNode= currNode->bro;
+               printf("%s: boolVal: %d\n",node->key, node->data->boolVal);
+               if(node->bro != NULL)
+                    node= node->bro;
             }
             if ( c == '[' && cond == 1)
             {
                 size = 0;
-                currNode->data = createArray(fin,&size,&type);
+
+                node->data = createArray(fin,&size,&type);
                 cond = 0;
-                printf("%s: ",currNode->key);
+                printf("%s: ",node->key);
                 if( type == 0)
                     for(int i=0; i< size; i++)
-                       printf("%s ",currNode->data->stringArray[i]);
+                       printf("%s ",node->data->stringArray[i]);
                 else if(type == 1)
                     for(int i=0; i< size; i++)
-                       printf("%d ",currNode->data->intArray[i]);
+                       printf("%d ",node->data->intArray[i]);
                 else if(type == 2)
                     for(int i=0; i< size; i++)
-                       printf("%f ",currNode->data->doubleArray[i]);
+                       printf("%f ",node->data->doubleArray[i]);
                 else if(type == 3)
                     for(int i=0; i< size; i++)
-                       printf("%d ",currNode->data->boolArray[i]);
+                       printf("%d ",node->data->boolArray[i]);
                 else if(type == 4)
                     for(int i=0; i< size; i++)
-                       printf("%d ",currNode->data->nullArray[i]);
+                       printf("%d ",node->data->nullArray[i]);
                 printf("\n");
-                if(currNode->bro != NULL)
-                    currNode= currNode->bro;
+                if(node->bro != NULL)
+                    node= node->bro;
             }
             if ( c == '}')
             {
-                currNode= currNode->dad;
-                if(currNode->bro != NULL)
-                    currNode= currNode->bro;
+                if(node->key != "root")
+                    node= node->dad;
+                if(node->bro != NULL)
+                    node= node->bro;
                 cond = 0;
             }
       }

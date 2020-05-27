@@ -268,3 +268,74 @@
 	"tempFunctions.h"
 	"array.h"
 
+1590613702 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+	"data.h"
+	"conversion.h"
+
+1590602024 d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1590602024 d:\proiect uso\uso uso\jsoncparser\jsonparcer\tempfunctions.h
+
+1590614934 d:\proiect uso\uso uso\jsoncparser\jsonparcer\conversion.h
+	<stdbool.h>
+
+1590614818 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\conversion.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+
+1590602024 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+
+1590613702 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	"data.h"
+	"array.h"
+
+1590602024 d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.h
+
+1590613702 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	"data.h"
+	"conversion.h"
+	"array.h"
+
+1590602024 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\tempfunctions.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<string.h>
+	<stdbool.h>
+	"data.h"
+
+1590613702 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\main.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<stdbool.h>
+	"data.h"
+	"conversion.h"
+	"array.h"
+	"readJSON.h"
+
+1590602024 d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.h
+

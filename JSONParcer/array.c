@@ -5,7 +5,6 @@
 #include <string.h>
 
 #include "data.h"
-#include "tempFunctions.h"
 #include "conversion.h"
 
 struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)

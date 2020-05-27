@@ -4,7 +4,6 @@
 #include <assert.h>
 
 #include "data.h"
-#include "tempFunctions.h"
 #include "array.h"
 
 #define stringSize 30

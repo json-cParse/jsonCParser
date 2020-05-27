@@ -57,15 +57,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="readJSON.h" />
-		<Unit filename="tempFunctions.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="tempFunctions.h" />
 		<Unit filename="test.txt" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
