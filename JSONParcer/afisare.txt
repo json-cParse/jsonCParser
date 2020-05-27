@@ -1,0 +1,71 @@
+Obiectul root are: 
+	 Copilul: quiz 
+
+Obiectul quiz are: 
+	 Tatal: root 
+	 Copilul: sport 
+
+Obiectul sport are: 
+	 Tatal: quiz 
+	 Copilul: q1 
+	 Fratele: maths 
+
+Obiectul q1 are: 
+	 Tatal: sport 
+	 Copilul: question 
+
+Obiectul question are: 
+	 Tatal: q1 
+	 Fratele: options 
+Elementul contine un BOOL
+
+Obiectul options are: 
+	 Tatal: q1 
+	 Fratele: answer 
+Elementul contine un INT:
+
+Obiectul answer are: 
+	 Tatal: q1 
+Elementul contine un BOOL
+
+Obiectul maths are: 
+	 Tatal: quiz 
+	 Copilul: q1 
+
+Obiectul q1 are: 
+	 Tatal: maths 
+	 Copilul: question 
+	 Fratele: q2 
+
+Obiectul question are: 
+	 Tatal: q1 
+	 Fratele: options 
+Elementul contine un BOOL
+
+Obiectul options are: 
+	 Tatal: q1 
+	 Fratele: answer 
+Elementul contine un INT:
+
+Obiectul answer are: 
+	 Tatal: q1 
+Elementul contine un BOOL
+
+Obiectul q2 are: 
+	 Tatal: maths 
+	 Copilul: question 
+
+Obiectul question are: 
+	 Tatal: q2 
+	 Fratele: options 
+Elementul contine un BOOL
+
+Obiectul options are: 
+	 Tatal: q2 
+	 Fratele: answer 
+Elementul contine un INT:
+
+Obiectul answer are: 
+	 Tatal: q2 
+Elementul contine un BOOL
+

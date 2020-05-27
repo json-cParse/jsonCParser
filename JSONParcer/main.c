@@ -26,15 +26,18 @@ int main()
    // printf("\n%s\n\n", root->kid->kid->key);
    // printf("\n\n\nNODURI\n");
     unsigned int i = 0;
-   printTree(root, &i);
+   //printTree(root, &i);
+   addData(&root, fin);
+   //printf("%s, %s", root->kid->kid->kid->kid->key, root->kid->kid->kid->kid->data->String);
+   printParsedData(fout, root);
    /*//addData(root,fin);
    printParsedData(fout, root);
    struct dataTypes* data;
    data->intVal = 1;
     //addJSON(&root, data, "info");
-    printParsedData(fout, root);
+    printParsedData(fout, root);*/
    fclose(fin);
-   fclose(fout);*/
+   fclose(fout);
     return 0;
 }
 

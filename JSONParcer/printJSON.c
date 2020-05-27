@@ -38,25 +38,25 @@ void printParsedData(FILE* fout , struct treeNode* node)
             ///cazuri elemente simple
             if (node->data->type == 0)
                 fprintf(fout, "Elementul contine un INT:\n");
-            if (node->data->type == 1)
+            else if (node->data->type == 1)
                 fprintf(fout, "Elementul contine un DOUBLE\n");
-            if (node->data->type == 2)
+            else if (node->data->type == 2)
                 fprintf(fout, "Elementul contine un BOOL\n");
-            if (node->data->type == 3)
+            else if (node->data->type == 3)
                 fprintf(fout, "Elementul contine un NULL\n");
-            if (node->data->String != NULL)
+            else if (node->data->type == 4)
                 fprintf(fout, "Elementul contine un STRING\n");
 
             ///cazuri vectori simpli
-            if (node->data->intArray != NULL)
+            else if (node->data->type == 5)
                 fprintf(fout, "Elementul contine un VECTOR DE INT\n");
-            if (node->data->doubleArray != NULL)
+            else if (node->data->type == 6)
                 fprintf(fout, "Elementul contine un VECTOR DE DOUBLE\n");
-            if (node->data->stringArray != NULL)
+            else if (node->data->type == 7)
                 fprintf(fout, "Elementul contine un VECTOR DE STRING\n");
-            if (node->data->boolArray != NULL)
+            else if (node->data->type == 8)
                 fprintf(fout, "Elementul contine un VECTOR DE BOOL\n");
-            if (node->data->nullArray != NULL)
+            else if (node->data->type == 9)
                 fprintf(fout, "Elementul contine un VECTOR DE NULL\n");
         }
 

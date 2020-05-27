@@ -277,7 +277,7 @@
 	"data.h"
 	"conversion.h"
 
-1590617036 d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.h
+1590619573 d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -294,20 +294,20 @@
 	<assert.h>
 	<string.h>
 
-1590617075 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.c
+1590619573 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<assert.h>
 
-1590617574 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.c
+1590620051 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.c
 	<stdio.h>
 	<stdlib.h>
 	"data.h"
 
 1590616983 d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.h
 
-1590613702 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.c
+1590619945 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -324,7 +324,7 @@
 	<stdbool.h>
 	"data.h"
 
-1590617687 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\main.c
+1590619945 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\main.c
 	<stdio.h>
 	<stdlib.h>
 	<assert.h>
@@ -335,7 +335,7 @@
 	"readJSON.h"
 	"printJSON.h"
 
-1590602024 d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.h
+1590619945 d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.h
 
 1590617528 d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.h
 
