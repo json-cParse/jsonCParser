@@ -29,6 +29,7 @@ struct dataTypes
 
     unsigned int dSize; /// size pentru numarul de vectori
     unsigned int* dsSize; /// size pentru fiecare vector din vectorul mare
+    int type; /// 0-int, 1-double, 2-bool, 3-null
 
 };
 
@@ -107,19 +108,46 @@ void printTree(struct treeNode *node)
     }
 }
 
-void printInfo(struct treeNode *node)
+void printInfo(FILE* fout , struct treeNode *node)
 {
     if(node != NULL)
     {
-        printf("%s : \n",node->key);
+        fprintf(fout , "Obiectul %s are: \n" , node->key);
         if (node->dad != NULL)
-            printf("\t dad: %s \n", node->dad->key);
+            fprintf(fout , "\t Tatal: %s \n", node->dad->key);
         if (node->kid != NULL)
-            printf("\t kid: %s \n", node->kid->key);
+            fprintf(fout , "\t Copilul: %s \n", node->kid->key);
         if (node->bro != NULL)
-            printf("\t BRUH: %s \n", node->bro->key);
-        printInfo(node->kid);
-        printInfo(node->bro);
+            fprintf(fout , "\t Fratele: %s \n", node->bro->key);
+        if (node->kid == NULL)
+        {
+            ///cazuri elemente simple
+            if (node->data->type == 0)
+                fprintf(fout, "Elementul contine un INT:\n");
+            if (node->data->type == 1)
+                fprintf(fout, "Elementul contine un DOUBLE\n");
+            if (node->data->type == 2)
+                fprintf(fout, "Elementul contine un BOOL\n");
+            if (node->data->type == 3)
+                fprintf(fout, "Elementul contine un NULL\n");
+            if (node->data->String != NULL)
+                fprintf(fout, "Elementul contine un STRING\n");
+
+            ///cazuri vectori simpli
+            if (node->data->intArray != NULL)
+                fprintf(fout, "Elementul contine un VECTOR DE INT\n");
+            if (node->data->doubleArray != NULL)
+                fprintf(fout, "Elementul contine un VECTOR DE DOUBLE\n");
+            if (node->data->stringArray != NULL)
+                fprintf(fout, "Elementul contine un VECTOR DE STRING\n");
+            if (node->data->boolArray != NULL)
+                fprintf(fout, "Elementul contine un VECTOR DE BOOL\n");
+            if (node->data->nullArray != NULL)
+                fprintf(fout, "Elementul contine un VECTOR DE NULL\n");
+        }
+        fprintf(fout, "\n");
+        printInfo(fout, node->kid);
+        printInfo(fout, node->bro);
     }
 }
 ///isFileEmpty verifica daca fisierul este gol
@@ -130,6 +158,27 @@ bool isFileEmpty(FILE* fin)
         return true;
     return false;
 }
+
+void addJSON (struct treeNode** dad, struct dataTypes* data, char* key)
+{
+    if ((*dad)->kid == NULL )
+    {
+        (*dad)->kid = newNode();
+        (*dad)->kid->key = key;
+        (*dad)->kid->data = data;
+        return;
+    }
+
+    (*dad) = (*dad)->kid;
+
+    while ((*dad)->bro)
+        (*dad) = (*dad)->bro;
+
+    (*dad)->bro = newNode();
+    (*dad)->bro->key = key;
+    (*dad)->bro->data = data;
+}
+
 
 /// freeTree elibereaza memoria
 /*void freeTree(struct treeNode* node)

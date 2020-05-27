@@ -17,7 +17,7 @@ int main()
 
     char c;
     FILE* fin = fopen("test.txt" , "r");
-
+    FILE* fout = fopen("afisare.txt" , "w");
     c = fgetc(fin);
 
    readJSON(root , fin);
@@ -26,6 +26,13 @@ int main()
    // printf("\n\n\nNODURI\n");
    // int i = 0;
    // printInfo(root);
-    addData(root,fin);
+   //addData(root,fin);
+   //printJSON(fout, root);
+   struct dataTypes* data;
+   data->intVal = 1;
+    addJSON(&root, data, "info");
+    printJSON(fout, root);
+   fclose(fin);
+   fclose(fout);
     return 0;
 }

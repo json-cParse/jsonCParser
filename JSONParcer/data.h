@@ -67,4 +67,5 @@ struct treeNode* addKid(struct treeNode**, char*, struct treeNode*);
 bool isFileEmpty(FILE*);
 
 void printTree(struct treeNode *);
-void printInfo(struct treeNode *);
+void printInfo(FILE*, struct treeNode *);
+void addJSON (struct treeNode** , struct dataTypes* , char*);
