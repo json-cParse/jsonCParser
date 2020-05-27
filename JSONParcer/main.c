@@ -10,7 +10,6 @@
 #include "printJSON.h"
 
 
-
 int main()
 {
     struct treeNode* root = newNode();
@@ -38,6 +37,7 @@ int main()
     printParsedData(fout, root);*/
    fclose(fin);
    fclose(fout);
+    return 0;
     return 0;
 }
 

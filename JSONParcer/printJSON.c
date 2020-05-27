@@ -87,7 +87,7 @@ void printParsedData(FILE* fout , struct treeNode* node)
             }
             else if (node->data->type == 9)
             {
-                fprintf(fout, "Elementul contine un VECTOR DE NULL");
+                fprintf(fout, "Elementul contine un VECTOR DE NULL: ");
 
                 for(int i = 0; i < node->data->sSize ; i++)
                     fprintf(fout, "null, ");

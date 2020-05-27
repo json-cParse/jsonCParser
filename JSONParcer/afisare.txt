@@ -44,7 +44,7 @@ Obiectul question are:
 Obiectul options are: 
 	 Tatal: q1 
 	 Fratele: answer 
-	 Continut -> Elementul contine un VECTOR DE STRING:"10"; "11"; "12"; "13"; 
+	 Continut -> Elementul contine un VECTOR DE NULL: null, null, null, 
 Obiectul answer are: 
 	 Tatal: q1 
 	 Continut -> Elementul contine un STRING: 12
@@ -61,8 +61,8 @@ Obiectul question are:
 Obiectul options are: 
 	 Tatal: q2 
 	 Fratele: answer 
-	 Continut -> Elementul contine un VECTOR DE STRING:"1"; "2"; "3"; "4"; 
+	 Continut -> Elementul contine un VECTOR DE INT :1, 2, 3, 4, 
 Obiectul answer are: 
 	 Tatal: q2 
-	 Continut -> Elementul contine un STRING: 4
+	 Continut -> Elementul contine un DOUBLE: 4.20
 
