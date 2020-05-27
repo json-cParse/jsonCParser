@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-///Tipurile de date prezentate in JSON
-
+/* dataTypes - structura ce reprezinta tipurile de date prezente in fisierele JSON */
 struct dataTypes
 {
     int intVal; /// valoare int
@@ -29,16 +28,11 @@ struct dataTypes
 
     unsigned int dSize; /// size pentru numarul de vectori
     unsigned int* dsSize; /// size pentru fiecare vector din vectorul mare
+
+    int type; /// 0-int, 1-double, 2-bool, 3-null
 };
 
-struct tree
-{
-    int Size; ///dimensiunea totala a arborelui
-    struct treeNode** arr; ///vector de pointeri catre nodurile arborelui
-};
-
-/// nod =obiect JSON
-
+/* treeNode - structura ce reprezinta un element/obiect JSON */
 struct treeNode
 {
     char* key; ///cheia elementului JSON
@@ -50,22 +44,17 @@ struct treeNode
     struct treeNode* dad;
 };
 
-///newNode creeaza un nod nou
-
+/* newNode() initializeaza un nou nod */
 struct treeNode* newNode();
 
-///addBro adauga un nod frate
-
+/* addBro() adauga un nou frate nodului dat */
 struct treeNode* addBro(struct treeNode**, char*, struct treeNode*);
 
-///addKid adauga un nod copil
-
+/* addKid() adauga un nou copil nodului dat */
 struct treeNode* addKid(struct treeNode**, char*, struct treeNode*);
 
-///isFileEmpty verifica daca fisierul este gol
-
+/* isFileEmpty() verifica daca fisierul este gol */
 bool isFileEmpty(FILE*);
 
-void printTree(struct treeNode *);
-void printInfo(FILE*, struct treeNode *);
+/* addJSON() adauga un nou element intr-un fisier JSON, pentru editare */
 void addJSON (struct treeNode** , struct dataTypes* , char*);

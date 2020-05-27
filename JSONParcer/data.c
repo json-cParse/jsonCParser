@@ -3,9 +3,7 @@
 #include <stdbool.h>
 #include <assert.h>
 
-
-///Tipurile de date prezente in JSON
-
+/* dataTypes - structura ce reprezinta tipurile de date prezente in fisierele JSON */
 struct dataTypes
 {
     int intVal; /// valoare int
@@ -29,10 +27,12 @@ struct dataTypes
 
     unsigned int dSize; /// size pentru numarul de vectori
     unsigned int* dsSize; /// size pentru fiecare vector din vectorul mare
+
     int type; /// 0-int, 1-double, 2-bool, 3-null
 
 };
 
+/* treeNode - structura ce reprezinta un element/obiect JSON */
 struct treeNode
 {
     char* key; ///cheia elementului JSON
@@ -44,17 +44,10 @@ struct treeNode
     struct treeNode* dad;
 };
 
-struct tree
-{
-    int Size; ///dimensiunea totala a arborelui
-    struct treeNode** arr; ///vector de pointeri catre nodurile arborelui
-};
-
-///newNode creeaza un nod nou
-
+/* newNode() initializeaza un nou nod */
 struct treeNode* newNode()
 {
-    struct treeNode* temp=(struct treeNode*)malloc(sizeof(struct treeNode));
+    struct treeNode* temp = (struct treeNode*)malloc(sizeof(struct treeNode));
     assert(temp != NULL);
 
     temp->kid = NULL;
@@ -64,8 +57,7 @@ struct treeNode* newNode()
     return temp;
 }
 
-///addBro adauga un nod frate
-
+/* addBro() adauga un nou frate nodului dat */
 void addBro(struct treeNode** node, char* word, struct treeNode* DAD)
 {
     if (*node == NULL)
@@ -77,81 +69,21 @@ void addBro(struct treeNode** node, char* word, struct treeNode* DAD)
     (*node)->bro = newNode();
     (*node)->bro->key = word;
     (*node)->bro->dad = DAD;
-
-    //return node->bro;
 }
 
-///addKid adauga un nod copil
-
+/* addKid() adauga un nou copil nodului dat */
 void addKid(struct treeNode** node, char* word, struct treeNode* DAD)
 {
     if (*node ==NULL)
         return;
 
-   /* if ((*node)->kid != NULL )
-        addBro((*node)->kid);*/
-
-    (*node)->kid=newNode();
+    (*node)->kid = newNode();
     (*node)->kid->key = word;
     (*node)->kid->dad = DAD;
-    //return node->kid;
 }
 
 
-void printTree(struct treeNode *node)
-{
-    if(node != NULL)
-    {
-        printf("%s\n", node->key);
-        printTree(node->kid);
-        printTree(node->bro);
-    }
-}
-
-void printInfo(FILE* fout , struct treeNode *node)
-{
-    if(node != NULL)
-    {
-        fprintf(fout , "Obiectul %s are: \n" , node->key);
-        if (node->dad != NULL)
-            fprintf(fout , "\t Tatal: %s \n", node->dad->key);
-        if (node->kid != NULL)
-            fprintf(fout , "\t Copilul: %s \n", node->kid->key);
-        if (node->bro != NULL)
-            fprintf(fout , "\t Fratele: %s \n", node->bro->key);
-        if (node->kid == NULL)
-        {
-            ///cazuri elemente simple
-            if (node->data->type == 0)
-                fprintf(fout, "Elementul contine un INT:\n");
-            if (node->data->type == 1)
-                fprintf(fout, "Elementul contine un DOUBLE\n");
-            if (node->data->type == 2)
-                fprintf(fout, "Elementul contine un BOOL\n");
-            if (node->data->type == 3)
-                fprintf(fout, "Elementul contine un NULL\n");
-            if (node->data->String != NULL)
-                fprintf(fout, "Elementul contine un STRING\n");
-
-            ///cazuri vectori simpli
-            if (node->data->intArray != NULL)
-                fprintf(fout, "Elementul contine un VECTOR DE INT\n");
-            if (node->data->doubleArray != NULL)
-                fprintf(fout, "Elementul contine un VECTOR DE DOUBLE\n");
-            if (node->data->stringArray != NULL)
-                fprintf(fout, "Elementul contine un VECTOR DE STRING\n");
-            if (node->data->boolArray != NULL)
-                fprintf(fout, "Elementul contine un VECTOR DE BOOL\n");
-            if (node->data->nullArray != NULL)
-                fprintf(fout, "Elementul contine un VECTOR DE NULL\n");
-        }
-        fprintf(fout, "\n");
-        printInfo(fout, node->kid);
-        printInfo(fout, node->bro);
-    }
-}
-///isFileEmpty verifica daca fisierul este gol
-
+/* isFileEmpty() verifica daca fisierul este gol */
 bool isFileEmpty(FILE* fin)
 {
     if (feof(fin))
@@ -159,6 +91,7 @@ bool isFileEmpty(FILE* fin)
     return false;
 }
 
+/* addJSON() adauga un nou element intr-un fisier JSON, pentru editare */
 void addJSON (struct treeNode** dad, struct dataTypes* data, char* key)
 {
     if ((*dad)->kid == NULL )
@@ -169,25 +102,12 @@ void addJSON (struct treeNode** dad, struct dataTypes* data, char* key)
         return;
     }
 
-    (*dad) = (*dad)->kid;
+    *dad = (*dad)->kid;
 
     while ((*dad)->bro)
-        (*dad) = (*dad)->bro;
+        *dad = (*dad)->bro;
 
     (*dad)->bro = newNode();
     (*dad)->bro->key = key;
     (*dad)->bro->data = data;
 }
-
-
-/// freeTree elibereaza memoria
-/*void freeTree(struct treeNode* node)
-{
-    if(node == NULL)
-        return;
-    freeTree(node->kid);
-    freeTree(node->bro);
-    node->dad=NULL;
-    //if(node->data->stringArray != NULL)
-}*/
-

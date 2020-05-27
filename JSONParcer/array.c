@@ -7,6 +7,7 @@
 #include "data.h"
 #include "conversion.h"
 
+/* createArray() realizeaza parsarea unui vector dintr-un fisier JSON */
 struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
 {
     struct dataTypes* temp ;

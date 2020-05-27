@@ -268,7 +268,7 @@
 	"tempFunctions.h"
 	"array.h"
 
-1590613702 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.c
+1590616983 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -277,7 +277,7 @@
 	"data.h"
 	"conversion.h"
 
-1590602024 d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.h
+1590617036 d:\proiect uso\uso uso\jsoncparser\jsonparcer\data.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -308,7 +308,7 @@
 	"data.h"
 	"array.h"
 
-1590602024 d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.h
+1590616983 d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.h
 
 1590613702 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.c
 	<stdio.h>
