@@ -40,11 +40,11 @@ void printParsedData(FILE* fout , struct treeNode* node)
                 fprintf(fout, "Elementul contine un INT:\n");
             else if (node->data->type == 1)
                 fprintf(fout, "Elementul contine un DOUBLE\n");
-            else if (node->data->type == 2)
-                fprintf(fout, "Elementul contine un BOOL\n");
             else if (node->data->type == 3)
-                fprintf(fout, "Elementul contine un NULL\n");
+                fprintf(fout, "Elementul contine un BOOL\n");
             else if (node->data->type == 4)
+                fprintf(fout, "Elementul contine un NULL\n");
+            else if (node->data->type == 2)
                 fprintf(fout, "Elementul contine un STRING\n");
 
             ///cazuri vectori simpli

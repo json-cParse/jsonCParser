@@ -11,17 +11,17 @@
 struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
 {
     struct dataTypes* temp ;
-    temp =(struct dataTypes*)malloc(sizeof(struct dataTypes));
+    temp = (struct dataTypes*)malloc(sizeof(struct dataTypes));
     assert(temp != NULL);
 
     char c;
-
     bool cond = true;
 
     while((c = fgetc(fin)) != ']' && cond == true)
     {
         if(c == '"')
-        { *type = 0;
+        {
+            *type = 7;
             if(*size == 0)
             {
                 /// alocam memorie
@@ -63,7 +63,6 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
             /// in intOrDouble verificam daca numarul este int or double (intOrDouble == 0 -> int / intOrDouble == 1 -> double)
             bool intOrDouble = 0;
             char* number = createNumber(c, &intOrDouble, fin); /// stocam numarul sub forma unui string
-
             if(intOrDouble == 0) /// avem numere de tipul int
             {
                 if(*size == 0)
@@ -123,12 +122,13 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
                 }
             }
             if(intOrDouble == 0)
-                *type = 1;
-            else *type = 2;
+                *type = 5;
+            else
+                *type = 6;
         } // acolada if(c >= '0' && c <= '9')
         else if(c == 'f' || c == 't')
         {
-            *type = 3;
+            *type = 8;
             char *var = createBoolAndNull(c, fin);
 
             if(*size == 0)
@@ -163,7 +163,7 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
         } // acolada if(c == 'f' || c == 't')
         else if(c == 'n')
         {
-            *type = 4;
+            *type = 9;
             char* var = createBoolAndNull(c, fin);
 
             if(*size == 0)

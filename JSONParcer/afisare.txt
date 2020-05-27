@@ -17,16 +17,16 @@ Obiectul q1 are:
 Obiectul question are: 
 	 Tatal: q1 
 	 Fratele: options 
-Elementul contine un BOOL
+Elementul contine un STRING
 
 Obiectul options are: 
 	 Tatal: q1 
 	 Fratele: answer 
-Elementul contine un INT:
+Elementul contine un VECTOR DE STRING
 
 Obiectul answer are: 
 	 Tatal: q1 
-Elementul contine un BOOL
+Elementul contine un STRING
 
 Obiectul maths are: 
 	 Tatal: quiz 
@@ -40,16 +40,16 @@ Obiectul q1 are:
 Obiectul question are: 
 	 Tatal: q1 
 	 Fratele: options 
-Elementul contine un BOOL
+Elementul contine un STRING
 
 Obiectul options are: 
 	 Tatal: q1 
 	 Fratele: answer 
-Elementul contine un INT:
+Elementul contine un VECTOR DE STRING
 
 Obiectul answer are: 
 	 Tatal: q1 
-Elementul contine un BOOL
+Elementul contine un STRING
 
 Obiectul q2 are: 
 	 Tatal: maths 
@@ -58,14 +58,14 @@ Obiectul q2 are:
 Obiectul question are: 
 	 Tatal: q2 
 	 Fratele: options 
-Elementul contine un BOOL
+Elementul contine un STRING
 
 Obiectul options are: 
 	 Tatal: q2 
 	 Fratele: answer 
-Elementul contine un INT:
+Elementul contine un VECTOR DE STRING
 
 Obiectul answer are: 
 	 Tatal: q2 
-Elementul contine un BOOL
+Elementul contine un STRING
 

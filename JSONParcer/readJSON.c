@@ -108,7 +108,9 @@ void addData(struct treeNode** node, FILE* fin)
             (*node)->data = (struct dataTypes*)malloc(sizeof(struct dataTypes));
 
             size = 0;
+            type = -1;
             (*node)->data = createArray(fin, &size, &type);
+            (*node)->data->type = type;
             cond = 0;
 
             if((*node)->bro != NULL)
