@@ -318,6 +318,6 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
             cond = false;
         } // acolada if(c == '[')*/
     } // acolada while((c = fgetc(fin)) != ']')
-
+    temp->sSize = *size;
     return temp;
 }

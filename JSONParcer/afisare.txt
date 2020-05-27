@@ -17,16 +17,15 @@ Obiectul q1 are:
 Obiectul question are: 
 	 Tatal: q1 
 	 Fratele: options 
-Elementul contine un STRING
+	 Continut -> Elementul contine un STRING: Which one is correct team name in NBA?
 
 Obiectul options are: 
 	 Tatal: q1 
 	 Fratele: answer 
-Elementul contine un VECTOR DE STRING
-
+	 Continut -> Elementul contine un VECTOR DE STRING:"New York Bulls"; "Los Angeles Kings"; "Golden State Warriros"; "Huston Rocket"; 
 Obiectul answer are: 
 	 Tatal: q1 
-Elementul contine un STRING
+	 Continut -> Elementul contine un STRING: Huston Rocket
 
 Obiectul maths are: 
 	 Tatal: quiz 
@@ -40,16 +39,15 @@ Obiectul q1 are:
 Obiectul question are: 
 	 Tatal: q1 
 	 Fratele: options 
-Elementul contine un STRING
+	 Continut -> Elementul contine un STRING: 5 + 7 = ?
 
 Obiectul options are: 
 	 Tatal: q1 
 	 Fratele: answer 
-Elementul contine un VECTOR DE STRING
-
+	 Continut -> Elementul contine un VECTOR DE STRING:"10"; "11"; "12"; "13"; 
 Obiectul answer are: 
 	 Tatal: q1 
-Elementul contine un STRING
+	 Continut -> Elementul contine un STRING: 12
 
 Obiectul q2 are: 
 	 Tatal: maths 
@@ -58,14 +56,13 @@ Obiectul q2 are:
 Obiectul question are: 
 	 Tatal: q2 
 	 Fratele: options 
-Elementul contine un STRING
+	 Continut -> Elementul contine un STRING: 12 - 8 = ?
 
 Obiectul options are: 
 	 Tatal: q2 
 	 Fratele: answer 
-Elementul contine un VECTOR DE STRING
-
+	 Continut -> Elementul contine un VECTOR DE STRING:"1"; "2"; "3"; "4"; 
 Obiectul answer are: 
 	 Tatal: q2 
-Elementul contine un STRING
+	 Continut -> Elementul contine un STRING: 4
 

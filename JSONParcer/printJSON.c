@@ -35,29 +35,63 @@ void printParsedData(FILE* fout , struct treeNode* node)
 
         if (node->kid == NULL)
         {
+            fprintf(fout, "\t Continut -> ");
             ///cazuri elemente simple
             if (node->data->type == 0)
-                fprintf(fout, "Elementul contine un INT:\n");
+                fprintf(fout, "Elementul contine un INT: %d\n", node->data->intVal);
             else if (node->data->type == 1)
-                fprintf(fout, "Elementul contine un DOUBLE\n");
-            else if (node->data->type == 3)
-                fprintf(fout, "Elementul contine un BOOL\n");
-            else if (node->data->type == 4)
-                fprintf(fout, "Elementul contine un NULL\n");
+                fprintf(fout, "Elementul contine un DOUBLE: %.2f\n", node->data->doubleVal);
             else if (node->data->type == 2)
-                fprintf(fout, "Elementul contine un STRING\n");
+                fprintf(fout, "Elementul contine un STRING: %s\n", node->data->String);
+            else if (node->data->type == 3)
+            {
+                if(node->data->boolVal == 1)
+                    fprintf(fout, "Elementul contine un BOOL: true\n");
+                else
+                    fprintf(fout, "Elementul contine un BOOL: null\n");
+            }
+            else if (node->data->type == 4)
+                fprintf(fout, "Elementul contine un NULL: null\n");
 
             ///cazuri vectori simpli
             else if (node->data->type == 5)
-                fprintf(fout, "Elementul contine un VECTOR DE INT\n");
+            {
+                fprintf(fout, "Elementul contine un VECTOR DE INT :");
+
+                for(int i = 0; i < node->data->sSize ; i++)
+                    fprintf(fout, "%d, ", node->data->intArray[i]);
+            }
             else if (node->data->type == 6)
-                fprintf(fout, "Elementul contine un VECTOR DE DOUBLE\n");
+            {
+                fprintf(fout, "Elementul contine un VECTOR DE DOUBLE:");
+
+                for(int i = 0; i < node->data->sSize ; i++)
+                    fprintf(fout, "%.2f, ", node->data->doubleArray[i]);
+            }
             else if (node->data->type == 7)
-                fprintf(fout, "Elementul contine un VECTOR DE STRING\n");
+            {
+                fprintf(fout, "Elementul contine un VECTOR DE STRING:");
+
+                for(int i = 0; i < node->data->sSize ; i++)
+                    fprintf(fout, "\"%s\"; ", node->data->stringArray[i]);
+            }
             else if (node->data->type == 8)
-                fprintf(fout, "Elementul contine un VECTOR DE BOOL\n");
+            {
+                fprintf(fout, "Elementul contine un VECTOR DE BOOL: ");
+
+                for(int i = 0; i < node->data->sSize ; i++)
+                    if(node->data->boolArray[i] == 1)
+                        fprintf(fout, "true, ");
+                    else
+                        fprintf(fout, "false, ");
+            }
             else if (node->data->type == 9)
-                fprintf(fout, "Elementul contine un VECTOR DE NULL\n");
+            {
+                fprintf(fout, "Elementul contine un VECTOR DE NULL");
+
+                for(int i = 0; i < node->data->sSize ; i++)
+                    fprintf(fout, "null, ");
+            }
         }
 
         fprintf(fout, "\n");
