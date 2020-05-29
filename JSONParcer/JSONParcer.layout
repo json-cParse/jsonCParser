@@ -2,24 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="conversion.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="test.json" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2393" topLine="84" />
+			<Cursor1 position="440" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="array.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="app.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="13169" topLine="228" />
-		</Cursor>
-	</File>
-	<File name="conversion.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="574" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="readJSON.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1433" topLine="170" />
+			<Cursor1 position="20" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="afisare.txt" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,34 +17,34 @@
 			<Cursor1 position="377" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="readJSON.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="401" topLine="0" />
+			<Cursor1 position="704" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="test.json" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="readJSON.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="280" topLine="0" />
+			<Cursor1 position="1433" topLine="170" />
 		</Cursor>
 	</File>
-	<File name="printJSON.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="array.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6492" topLine="203" />
+			<Cursor1 position="13169" topLine="228" />
 		</Cursor>
 	</File>
-	<File name="data.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="array.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1314" topLine="0" />
+			<Cursor1 position="88" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="data.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="conversion.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2893" topLine="75" />
+			<Cursor1 position="2393" topLine="84" />
 		</Cursor>
 	</File>
-	<File name="app.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="printJSON.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="20" topLine="0" />
+			<Cursor1 position="7805" topLine="224" />
 		</Cursor>
 	</File>
 	<File name="app.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -67,19 +57,29 @@
 			<Cursor1 position="388" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="array.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="readJSON.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="88" topLine="0" />
+			<Cursor1 position="401" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="data.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2893" topLine="75" />
 		</Cursor>
 	</File>
 	<File name="test.txt" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="547" topLine="0" />
+			<Cursor1 position="399" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="conversion.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="704" topLine="0" />
+			<Cursor1 position="574" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="data.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1314" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

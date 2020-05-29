@@ -239,22 +239,24 @@ void saveJSON(FILE* fout, struct treeNode* node, unsigned int* level)
         }
         else
             printData(node->data, *level, fout);
-        if(node->bro != NULL)
-            {
-                if(node->kid == NULL)
-                    fprintf(fout, ",\n");
-                saveJSON(fout, node->bro, level);
-            }
-        if(node->kid != NULL || node->dad->kid == node)
-        {
-            (*level)--;
-            fprintf(fout, "\n");
-            printTab(*level, fout);
 
-            if(node->bro != NULL)
-                fprintf(fout, "},\n");
-            else
-                fprintf(fout, "}\n");
+        if(node->bro != NULL)
+        {
+            if(node->kid == NULL)
+                fprintf(fout, ",\n");
+            saveJSON(fout, node->bro, level);
+
+            if(node->kid != NULL || node->dad->kid == node)
+            {
+                node = node->dad;
+                (*level)--;
+                fprintf(fout, "\n");
+                printTab(*level, fout);
+
+                fprintf(fout, "}");
+            }
+            if(node->kid != NULL && node->bro != NULL)
+                fprintf(fout, ",");
         }
     }
 }
