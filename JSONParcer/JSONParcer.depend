@@ -300,14 +300,14 @@
 	<stdbool.h>
 	<assert.h>
 
-1590621337 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.c
+1590763532 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.c
 	<stdio.h>
 	<stdlib.h>
 	"data.h"
 
 1590616983 d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.h
 
-1590620444 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.c
+1590679640 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -324,7 +324,7 @@
 	<stdbool.h>
 	"data.h"
 
-1590622982 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\main.c
+1590761134 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\main.c
 	<stdio.h>
 	<stdlib.h>
 	<assert.h>
@@ -335,9 +335,10 @@
 	"readJSON.h"
 	"printJSON.h"
 
-1590619945 d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.h
+1590677101 d:\proiect uso\uso uso\jsoncparser\jsonparcer\readjson.h
+	"data.h"
 
-1590617528 d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.h
+1590701586 d:\proiect uso\uso uso\jsoncparser\jsonparcer\printjson.h
 
 1590622557 d:\proiect uso\uso uso\jsoncparser\jsonparcer\app.h
 

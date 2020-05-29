@@ -99,3 +99,162 @@ void printParsedData(FILE* fout , struct treeNode* node)
         printParsedData(fout, node->bro);
     }
 }
+
+void printTab(int freq, FILE* fout)
+{
+    for(int i = 0 ; i < freq ; i++)
+        fprintf(fout, "\t");
+}
+
+void printData(struct dataTypes* data, unsigned int level, FILE* fout)
+{
+    switch(data->type)
+    {
+        case 0:
+        {
+            fprintf(fout, "%d", data->intVal);
+            break;
+        }
+        case 1:
+        {
+            fprintf(fout, "%.2f", data->doubleVal);
+            break;
+        }
+        case 2:
+        {
+            fprintf(fout, "\"%s\"", data->String);
+            break;
+        }
+        case 3:
+        {
+            if(data->boolVal == 1)
+                fprintf(fout, "true");
+            else
+                fprintf(fout, "false");
+            break;
+        }
+        case 4:
+        {
+            fprintf(fout, "null");
+            break;
+        }
+        case 5:
+        {
+            fprintf(fout, "[\n");
+            for(int i = 0 ; i < data->sSize ; i++)
+            {
+                printTab(level + 2, fout);
+                fprintf(fout, "%d", data->intArray[i]);
+
+                if(i != data->sSize - 1) fprintf(fout, ",");
+                fprintf(fout, "\n");
+            }
+            printTab(level, fout);
+            fprintf(fout, "]");
+            break;
+        }
+        case 6:
+        {
+            fprintf(fout, "[\n");
+            for(int i = 0 ; i < data->sSize ; i++)
+            {
+                printTab(level + 2, fout);
+                fprintf(fout, "%.2f", data->doubleArray[i]);
+
+                if(i != data->sSize - 1) fprintf(fout, ",");
+                fprintf(fout, "\n");
+            }
+            printTab(level, fout);
+            fprintf(fout, "]");
+            break;
+        }
+        case 7:
+        {
+            fprintf(fout, "[\n");
+            for(int i = 0 ; i < data->sSize ; i++)
+            {
+                printTab(level + 2, fout);
+                fprintf(fout, "\"%s\"", data->stringArray[i]);
+
+                if(i != data->sSize - 1) fprintf(fout, ",");
+                fprintf(fout, "\n");
+            }
+            printTab(level, fout);
+            fprintf(fout, "]");
+            break;
+        }
+        case 8:
+        {
+            fprintf(fout, "[\n");
+            for(int i = 0 ; i < data->sSize ; i++)
+            {
+                printTab(level + 2, fout);
+
+                if(data->boolArray[i] == 1)
+                    fprintf(fout, "true");
+                else
+                    fprintf(fout, "false");
+
+                if(i != data->sSize - 1) fprintf(fout, ",");
+                fprintf(fout, "\n");
+            }
+            printTab(level, fout);
+            fprintf(fout, "]");
+            break;
+        }
+        case 9:
+        {
+            fprintf(fout, "[\n");
+            for(int i = 0 ; i < data->sSize ; i++)
+            {
+                printTab(level + 2, fout);
+                fprintf(fout, "null");
+
+                if(i != data->sSize - 1) fprintf(fout, ",");
+                fprintf(fout, "\n");
+            }
+            printTab(level, fout);
+            fprintf(fout, "]");
+            break;
+        }
+
+    }
+}
+
+/* saveJSON() salveaza un arbore construit in format JSON */
+void saveJSON(FILE* fout, struct treeNode* node, unsigned int* level)
+{
+    if(node != NULL)
+    {
+        if(node->kid != NULL || node->dad->kid == node)
+            fprintf(fout, "{\n");
+
+        printTab(*level, fout);
+        fprintf(fout,  "\"%s\": ", node->key);
+
+        if(node->kid != NULL)
+        {
+            (*level)++;
+            saveJSON(fout, node->kid, level);
+        }
+        else
+            printData(node->data, *level, fout);
+        if(node->bro != NULL)
+            {
+                if(node->kid == NULL)
+                    fprintf(fout, ",\n");
+                saveJSON(fout, node->bro, level);
+            }
+        if(node->kid != NULL || node->dad->kid == node)
+        {
+            (*level)--;
+            fprintf(fout, "\n");
+            printTab(*level, fout);
+
+            if(node->bro != NULL)
+                fprintf(fout, "},\n");
+            else
+                fprintf(fout, "}\n");
+        }
+    }
+}

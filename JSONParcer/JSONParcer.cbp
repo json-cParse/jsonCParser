@@ -61,6 +61,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="readJSON.h" />
+		<Unit filename="test.json" />
 		<Unit filename="test.txt" />
 		<Extensions />
 	</Project>
