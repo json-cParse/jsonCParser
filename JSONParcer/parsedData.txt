@@ -22,7 +22,7 @@ Obiectul question are:
 Obiectul options are: 
 	 Tatal: q1 
 	 Fratele: answer 
-	 Continut -> Elementul contine un VECTOR DE STRING:"New York Bulls"; "Los Angeles Kings"; "Golden State Warriros"; "Huston Rocket"; 
+	 Continut -> Elementul contine un VECTOR DE STRING:"New York Bulls"; "Los Angeles Kings"; 
 Obiectul answer are: 
 	 Tatal: q1 
 	 Continut -> Elementul contine un STRING: Huston Rocket

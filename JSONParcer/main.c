@@ -15,24 +15,31 @@ int main()
     struct treeNode* root = newNode();
     root->key = "root";
 
-    FILE* fin = fopen("test.txt" , "r");
-    FILE* fout = fopen("afisare.txt" , "w");
-    FILE* jfout = fopen("test.json", "w");
+    FILE* fin = fopen("test_in.json" , "r");
+    FILE* fout = fopen("parsedData.txt" , "w");
+    FILE* jfout = fopen("test_out.json", "w");
     fgetc(fin);
 
+    /// citire fisier JSON
     readJSON(root, fin); /// structuram arborele
     fseek(fin, 0, SEEK_SET); /// aducem pointerul la inceputul fisierului pentru noi prelucrari
 
-    addData(&root, fin);
+    addData(&root, fin); /// adaugam datele
+
+    /// printam datele parsate din fisierul JSON
     printParsedData(fout, root);
 
+    /// salvare in format JSON
     unsigned int level = 1;
     saveJSON(jfout, root->kid, &level);
 
+    /// eliberare memorie
     freeTree(root);
     root = NULL;
+
     fclose(fin);
     fclose(fout);
+    fclose(jfout);
     return 0;
 }
 

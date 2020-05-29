@@ -169,6 +169,8 @@ void freeData(struct dataTypes* data)
                 free(data->nullArrayArr[i]);
             free(data->nullArrayArr);
         }
+
+        free(data->dsSize);
     }
 }
 

@@ -56,7 +56,7 @@ void addData(struct treeNode** node, FILE* fin)
     char* word;
     bool cond = 0;
 
-    int size=0, type=0;
+    int type = 0;
     while((c= fgetc(fin)) != EOF)
     {
         if(c == ':')
@@ -105,9 +105,8 @@ void addData(struct treeNode** node, FILE* fin)
         {
             (*node)->data = (struct dataTypes*)malloc(sizeof(struct dataTypes));
 
-            size = 0;
             type = -1;
-            (*node)->data = createArray(fin, &size, &type);
+            (*node)->data = createArray(fin, &type);
             (*node)->data->type = type;
             cond = 0;
 

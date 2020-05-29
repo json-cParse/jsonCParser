@@ -33,7 +33,6 @@
 		</Compiler>
 		<Unit filename="JSONParcer.cbp" />
 		<Unit filename="JSONParcer.layout" />
-		<Unit filename="afisare.txt" />
 		<Unit filename="array.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -49,6 +48,7 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="parsedData.txt" />
 		<Unit filename="printJSON.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -57,8 +57,8 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="readJSON.h" />
-		<Unit filename="test.json" />
-		<Unit filename="test.txt" />
+		<Unit filename="test_in.json" />
+		<Unit filename="test_out.json" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
