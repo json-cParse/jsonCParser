@@ -34,10 +34,6 @@
 		<Unit filename="JSONParcer.cbp" />
 		<Unit filename="JSONParcer.layout" />
 		<Unit filename="afisare.txt" />
-		<Unit filename="app.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="app.h" />
 		<Unit filename="array.c">
 			<Option compilerVar="CC" />
 		</Unit>

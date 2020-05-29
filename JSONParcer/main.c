@@ -28,6 +28,9 @@ int main()
 
     unsigned int level = 1;
     saveJSON(jfout, root->kid, &level);
+
+    freeTree(root);
+    root = NULL;
     fclose(fin);
     fclose(fout);
     return 0;

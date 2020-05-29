@@ -111,3 +111,79 @@ void addJSON (struct treeNode** dad, struct dataTypes* data, char* key)
     (*dad)->bro->key = key;
     (*dad)->bro->data = data;
 }
+
+
+void freeData(struct dataTypes* data)
+{
+    if(data->String != NULL)
+        free(data->String);
+
+    if(data->sSize != 0)
+    {
+        if(data->intArray != NULL) free(data->intArray);
+        if(data->doubleArray != NULL) free(data->doubleArray);
+
+        if(data->stringArray != NULL)
+        {
+            for(unsigned int i = 0 ; i < data->sSize ; i++)
+                free(data->stringArray[i]);
+            free(data->stringArray);
+        }
+
+        if(data->boolArray != NULL) free(data->boolArray);
+        if(data->nullArray != NULL) free(data->nullArray);
+    }
+    if(data->dSize != 0)
+    {
+        if(data->intArrayArr != NULL)
+        {
+            for(unsigned int i = 0 ; i < data->dSize ; i++)
+                free(data->intArrayArr[i]);
+            free(data->intArrayArr);
+        }
+        if(data->doubleArrayArr != NULL)
+        {
+            for(unsigned int i = 0 ; i < data->dSize ; i++)
+                free(data->doubleArrayArr[i]);
+            free(data->doubleArrayArr);
+        }
+        if(data->stringArrayArr != NULL)
+        {
+            for(unsigned int i = 0 ; i < data->dSize ; i++)
+            {
+                for(unsigned int j = 0 ; j < data->dsSize[i] ; j++)
+                    free(data->stringArrayArr[i][j]);
+                free(data->stringArrayArr[i]);
+            }
+            free(data->stringArrayArr);
+        }
+        if(data->boolArrayArr != NULL)
+        {
+            for(unsigned int i = 0 ; i < data->dSize ; i++)
+                free(data->boolArrayArr[i]);
+            free(data->boolArrayArr);
+        }
+        if(data->nullArrayArr != NULL)
+        {
+            for(unsigned int i = 0 ; i < data->dSize ; i++)
+                free(data->nullArrayArr[i]);
+            free(data->nullArrayArr);
+        }
+    }
+}
+
+/* freeTree() elibereaza memoria ocupata de catre arbore */
+void freeTree(struct treeNode* node)
+{
+    if(node == NULL) return;
+    freeTree(node->kid);
+    freeTree(node->bro);
+
+    if(node->kid == NULL)
+    {
+        freeData(node->data);
+        free(node->data);
+    }
+
+    free(node);
+}

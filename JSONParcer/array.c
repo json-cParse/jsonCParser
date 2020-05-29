@@ -8,7 +8,7 @@
 #include "conversion.h"
 
 /* createArray() realizeaza parsarea unui vector dintr-un fisier JSON */
-struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
+struct dataTypes* createArray(FILE* fin, unsigned int* size, int *type)
 {
     struct dataTypes* temp ;
     temp = (struct dataTypes*)malloc(sizeof(struct dataTypes));
@@ -16,6 +16,9 @@ struct dataTypes* createArray(FILE* fin, unsigned int* size, unsigned int *type)
 
     char c;
     bool cond = true;
+
+    temp->sSize = 0;
+    temp->dSize = 0;
 
     while((c = fgetc(fin)) != ']' && cond == true)
     {
