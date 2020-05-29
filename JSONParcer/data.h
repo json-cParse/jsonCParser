@@ -57,7 +57,7 @@ struct treeNode* addKid(struct treeNode**, char*, struct treeNode*);
 bool isFileEmpty(FILE*);
 
 /* addJSON() adauga un nou element intr-un fisier JSON, pentru editare */
-void addJSON (struct treeNode** , struct dataTypes* , char*);
+void addJSON (struct treeNode*);
 
 /* freeTree() elibereaza memoria ocupata de catre arbore */
 void freeTree(struct treeNode*);

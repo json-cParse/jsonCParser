@@ -26,6 +26,9 @@ int main()
 
     addData(&root, fin); /// adaugam datele
 
+    /// adaugare element JSON nou
+    addJSON(root);
+
     /// printam datele parsate din fisierul JSON
     printParsedData(fout, root);
 

@@ -146,8 +146,8 @@ void addData(struct treeNode** node, FILE* fin)
     }
 }
 
-/**
-/* readData() citeste elementul sub forma unui tip de data pentru a fi adaugat intr-un nou element JSON *\/
+
+/* readData() citeste elementul sub forma unui tip de data pentru a fi adaugat intr-un nou element JSON */
 void readData(struct dataTypes** tempData)
 {
     *tempData = (struct tempData*)malloc(sizeof(struct dataTypes));
@@ -158,7 +158,7 @@ void readData(struct dataTypes** tempData)
 
     unsigned int type = -1;
     printf("Tasteaza codul tipului de date dorit: ");
-    scanf("%u ", &type);
+    scanf("%u", &type);
 
     switch(type)
     {
@@ -181,12 +181,11 @@ void readData(struct dataTypes** tempData)
         case 2:
             {
                 printf("Stringul este: ");
-                fflush(stdout);
+                fflush(stdin);
 
                 (*tempData)->String = (char*)malloc(wordSize * sizeof(char));
                 assert((*tempData)->String);
 
-                fflush(stdout);
                 fgets((*tempData)->String, wordSize, stdin);
                 break;
             }
@@ -203,5 +202,5 @@ void readData(struct dataTypes** tempData)
                 break;
             }
     }
-}*/
+}
 

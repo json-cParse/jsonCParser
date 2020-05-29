@@ -9,8 +9,13 @@ void printTree(struct treeNode* node, unsigned int* index)
 {
     if(node != NULL)
     {
-        printf("%d, %s\n", *index, node->key);
-        (*index)++;
+        if(node->kid != NULL)
+        {
+            printf("Codul %d pentru nodul %s\n", *index, node->key);
+            (*index)++;
+        }
+        else
+            printf("\t%s\n", node->key);
 
         printTree(node->kid, index);
         printTree(node->bro, index);
