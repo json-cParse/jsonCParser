@@ -163,44 +163,99 @@ void readData(struct dataTypes** tempData)
     switch(type)
     {
         case 0:
-            {
-                printf("Valoarea int este: ");
-                fflush(stdout);
-                scanf("%d", &(*tempData)->intVal);
-                fflush(stdout);
-                break;
-            }
+        {
+            printf("Valoarea int este: ");
+            scanf("%d", &(*tempData)->intVal);
+            break;
+        }
         case 1:
-            {
-                printf("Valoarea double este: ");
-                fflush(stdout);
-                scanf("%f", &(*tempData)->doubleVal);
-                fflush(stdout);
-                break;
-            }
+        {
+            printf("Valoarea double este: ");
+            scanf("%f", &(*tempData)->doubleVal);
+            break;
+        }
         case 2:
-            {
-                printf("Stringul este: ");
-                fflush(stdin);
+        {
+            printf("Stringul este: ");
+            fflush(stdin);
 
-                (*tempData)->String = (char*)malloc(wordSize * sizeof(char));
-                assert((*tempData)->String);
+            (*tempData)->String = (char*)malloc(wordSize * sizeof(char));
+            assert((*tempData)->String);
 
-                fgets((*tempData)->String, wordSize, stdin);
-                break;
-            }
+            fgets((*tempData)->String, wordSize, stdin);
+            break;
+        }
         case 3:
-            {
-                printf("Valoarea bool(tasteaza 0/1) este: ");
-                scanf("%d", &(*tempData)->boolVal);
-                break;
-            }
+        {
+            printf("Valoarea bool(tasteaza 0/1) este: ");
+            scanf("%d", &(*tempData)->boolVal);
+            break;
+        }
         case 4:
+        {
+            printf("Valoarea null este a fost adaugata!");
+            (*tempData)->nullVal = 1;
+            break;
+        }
+        case 5:
+        {
+            printf("Numarul de elemente este: ");
+            scanf("%u", &(*tempData)->sSize);
+
+            (*tempData)->intArray = (int*)malloc((*tempData)->sSize * sizeof(int));
+            printf("\nCiteste cele %u elemente: ", (*tempData)->sSize);
+            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
+                scanf("%d", &(*tempData)->intArray[i]);
+            break;
+        }
+        case 6:
+        {
+            printf("Numarul de elemente este: ");
+            scanf("%u", &(*tempData)->sSize);
+
+            (*tempData)->doubleArray = (double*)malloc((*tempData)->sSize * sizeof(double));
+            printf("\nCiteste cele %u elemente: ", (*tempData)->sSize);
+            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
+                scanf("%f", &(*tempData)->doubleArray[i]);
+            break;
+        }
+        case 7:
+        {
+            printf("Numarul de elemente este: ");
+            scanf("%u", &(*tempData)->sSize);
+
+            (*tempData)->stringArray = (char**)malloc((*tempData)->sSize * sizeof(char*));
+            printf("\nCiteste cele %u elemente (!cu Enter dupa fiecare string!):", (*tempData)->sSize);
+            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
             {
-                printf("Valoarea null este a fost adaugata!");
-                (*tempData)->nullVal = 1;
-                break;
+                (*tempData)->stringArray[i] = (char*)malloc(wordSize * sizeof(char));
+                fflush(stdin);
+                fgets((*tempData)->stringArray[i], wordSize, stdin);
             }
+            break;
+        }
+        case 8:
+        {
+            printf("Numarul de elemente este: ");
+            scanf("%u", &(*tempData)->sSize);
+
+            (*tempData)->boolArray = (bool*)malloc((*tempData)->sSize * sizeof(bool));
+            printf("\nCiteste cele %u elemente (tasteaza 0/1): ", (*tempData)->sSize);
+            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
+                scanf("%d", &(*tempData)->boolArray[i]);
+            break;
+        }
+        case 9:
+        {
+            printf("Numarul de elemente este: ");
+            scanf("%u", &(*tempData)->sSize);
+
+            (*tempData)->nullArray = (bool*)malloc((*tempData)->sSize * sizeof(bool));
+            printf("\nCele %u elemente au fost adaugate!", (*tempData)->sSize);
+            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
+                (*tempData)->nullArray[i] = 1;
+            break;
+        }
     }
 }
 

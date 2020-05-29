@@ -1,0 +1,68 @@
+Obiectul root are: 
+	 Copilul: quiz 
+
+Obiectul quiz are: 
+	 Tatal: root 
+	 Copilul: sport 
+
+Obiectul sport are: 
+	 Tatal: quiz 
+	 Copilul: q1 
+	 Fratele: maths 
+
+Obiectul q1 are: 
+	 Tatal: sport 
+	 Copilul: question 
+
+Obiectul question are: 
+	 Tatal: q1 
+	 Fratele: options 
+	 Continut -> Elementul contine un STRING: Which one is correct team name in NBA?
+
+Obiectul options are: 
+	 Tatal: q1 
+	 Fratele: answer 
+	 Continut -> Elementul contine un VECTOR DE STRING:"New York Bulls"; "Los Angeles Kings"; 
+Obiectul answer are: 
+	 Tatal: q1 
+	 Continut -> Elementul contine un STRING: Huston Rocket
+
+Obiectul maths are: 
+	 Tatal: quiz 
+	 Copilul: q1 
+
+Obiectul q1 are: 
+	 Tatal: maths 
+	 Copilul: question 
+	 Fratele: q2 
+
+Obiectul question are: 
+	 Tatal: q1 
+	 Fratele: options 
+	 Continut -> Elementul contine un STRING: 5 + 7 = ?
+
+Obiectul options are: 
+	 Tatal: q1 
+	 Fratele: answer 
+	 Continut -> Elementul contine un VECTOR DE NULL: null, null, null, 
+Obiectul answer are: 
+	 Tatal: q1 
+	 Continut -> Elementul contine un STRING: 12
+
+Obiectul q2 are: 
+	 Tatal: maths 
+	 Copilul: question 
+
+Obiectul question are: 
+	 Tatal: q2 
+	 Fratele: options 
+	 Continut -> Elementul contine un STRING: 12 - 8 = ?
+
+Obiectul options are: 
+	 Tatal: q2 
+	 Fratele: answer 
+	 Continut -> Elementul contine un VECTOR DE INT :1, 2, 3, 4, 
+Obiectul answer are: 
+	 Tatal: q2 
+	 Continut -> Elementul contine un DOUBLE: 4.20
+
