@@ -86,7 +86,6 @@ char* createBoolAndNull(char s, FILE* fin)
 
     var = (char*)malloc(wordSize * sizeof(char));
     assert(var != NULL);
-
     var[0] = s;
 
     int i = 1;

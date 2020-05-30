@@ -353,3 +353,66 @@
 
 1590838191 c:\users\madalina\desktop\jsoncparser\jsonparcer\printjson.h
 
+1590851092 source:d:\proiect uso\uso2\jsoncparser\jsonparcer\conversion.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+
+1590846935 source:d:\proiect uso\uso2\jsoncparser\jsonparcer\data.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+
+1590846935 source:d:\proiect uso\uso2\jsoncparser\jsonparcer\main.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<stdbool.h>
+	"data.h"
+	"conversion.h"
+	"array.h"
+	"readJSON.h"
+	"printJSON.h"
+
+1590846935 d:\proiect uso\uso2\jsoncparser\jsonparcer\data.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1590846935 d:\proiect uso\uso2\jsoncparser\jsonparcer\conversion.h
+	<stdbool.h>
+
+1590846935 d:\proiect uso\uso2\jsoncparser\jsonparcer\array.h
+
+1590846935 d:\proiect uso\uso2\jsoncparser\jsonparcer\readjson.h
+	"data.h"
+
+1590846935 d:\proiect uso\uso2\jsoncparser\jsonparcer\printjson.h
+
+1590846935 source:d:\proiect uso\uso2\jsoncparser\jsonparcer\printjson.c
+	<stdio.h>
+	<stdlib.h>
+	"data.h"
+
+1590846935 source:d:\proiect uso\uso2\jsoncparser\jsonparcer\readjson.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	"data.h"
+	"conversion.h"
+	"array.h"
+	"printJSON.h"
+
+1590850892 source:d:\proiect uso\uso2\jsoncparser\jsonparcer\array.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<assert.h>
+	<string.h>
+	"data.h"
+	"conversion.h"
+
