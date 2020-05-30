@@ -264,23 +264,25 @@ struct dataTypes* readData()
 }
 
 /* getNode() returneaza nodul cu un un index dat */
-void getNode(struct treeNode** node, struct dataTypes* data, char* key, unsigned int index, unsigned int* currIndex, bool* cond)
+void getNode(struct treeNode* node, struct dataTypes* data, char* key, unsigned int index, unsigned int* currIndex, bool* cond)
 {
-    if(*node != NULL)
+    if(node != NULL)
     {
-        if(index == *currIndex && (*node)->kid != NULL && *cond == 0)
+        if(index == *currIndex && node->kid != NULL && *cond == 0)
         {
             *cond = 1;
-            addBro(&(*node)->kid, key, *node);
-            *node = (*node)->kid;
-            while((*node)->bro)
-                *node = (*node)->bro;
-            (*node)->data = data;
+            addBro(&(node->kid), key, node);
+            node = node->kid;
+            while(node->bro)
+                node = node->bro;
+            node->data = data;
             return;
         }
+        if(node->kid != NULL)
+            (*currIndex)++;
 
-        getNode((*node)->kid, data, key, index, currIndex, cond);
-        getNode((*node)->bro, data, key, index, currIndex, cond);
+        getNode(node->kid, data, key, index, currIndex, cond);
+        getNode(node->bro, data, key, index, currIndex, cond);
     }
 }
 
@@ -307,25 +309,5 @@ void addJSON (struct treeNode* root)
     tempKey[strlen(tempKey) - 1] = NULL;
 
     struct dataTypes* data = readData();
-    printData(data, 0, stdout);
-    //getNode(&root, data, tempKey, cod, &index, &cond);
-
-    /// NEFUNCTIONAL
-
-    /*printf("\nTe rugam sa introduci cheia elementului JSON: ");
-    char* tempKey = (char*)malloc(wordSize * sizeof(char));
-    fflush(stdin);
-    fgets(tempKey, wordSize, stdin);
-
-
-    temp = dad;
-    printf("%s\n", temp->key);
-
-    dad = dad->kid;
-    printf("%s\n", dad->key);
-    addBro(&dad, tempKey, temp);
-
-    struct dataTypes* data;
-    readData(&data);
-    dad->data = data;*/
+    getNode(root, data, tempKey, cod, &index, &cond);
 }

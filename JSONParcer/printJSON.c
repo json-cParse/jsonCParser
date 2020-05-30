@@ -76,7 +76,7 @@ void printParsedData(FILE* fout , struct treeNode* node)
 
                 for(int i = 0; i < node->data->sSize ; i++)
                 {
-                    fprintf(fout, "%.2f, ", node->data->doubleArray[i]);
+                    fprintf(fout, "%.2f", node->data->doubleArray[i]);
                     if(i != node->data->sSize - 1)
                         fprintf(fout, ", ");
                 }
