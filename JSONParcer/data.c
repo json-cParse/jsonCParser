@@ -93,61 +93,6 @@ bool isFileEmpty(FILE* fin)
     return false;
 }
 
-struct treeNode* getNode(struct treeNode* node, unsigned int index, unsigned int* currIndex, bool* cond)
-{
-    if(node != NULL)
-    {
-        if(index == *currIndex && node->kid != NULL && *cond == 0)
-        {
-            *cond = 1;
-            return node;
-        }
-        if(node->kid != NULL)
-            (*currIndex)++;
-
-        getNode(node->kid, index, currIndex, cond);
-        getNode(node->bro, index, currIndex, cond);
-    }
-}
-
-/* addJSON() adauga un nou element intr-un fisier JSON, pentru editare */
-void addJSON (struct treeNode* root)
-{
-    unsigned int index = 0;
-    bool cond = 0;
-    struct treeNode* dad;
-    struct treeNode* temp;
-
-    printTree(root, &index);
-
-    unsigned int cod;
-    printf("\nTasteaza codul: ");
-    scanf("%u", &cod);
-
-    index = 0;
-
-    dad = getNode(root, cod, &index, &cond);
-    printf("%s\n", dad->key);
-
-    /// NEFUNCTIONAL
-
-    /*printf("\nTe rugam sa introduci cheia elementului JSON: ");
-    char* tempKey = (char*)malloc(wordSize * sizeof(char));
-    fflush(stdin);
-    fgets(tempKey, wordSize, stdin);
-
-
-    temp = dad;
-    printf("%s\n", temp->key);
-
-    dad = dad->kid;
-    printf("%s\n", dad->key);
-    addBro(&dad, tempKey, temp);
-
-    struct dataTypes* data;
-    readData(&data);
-    dad->data = data;*/
-}
 
 
 void freeData(struct dataTypes* data)

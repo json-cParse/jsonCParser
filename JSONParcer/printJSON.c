@@ -64,38 +64,59 @@ void printParsedData(FILE* fout , struct treeNode* node)
                 fprintf(fout, "Elementul contine un VECTOR DE INT :");
 
                 for(int i = 0; i < node->data->sSize ; i++)
-                    fprintf(fout, "%d, ", node->data->intArray[i]);
+                {
+                    fprintf(fout, "%d", node->data->intArray[i]);
+                    if(i != node->data->sSize - 1)
+                        fprintf(fout, ", ");
+                }
             }
             else if (node->data->type == 6)
             {
                 fprintf(fout, "Elementul contine un VECTOR DE DOUBLE:");
 
                 for(int i = 0; i < node->data->sSize ; i++)
+                {
                     fprintf(fout, "%.2f, ", node->data->doubleArray[i]);
+                    if(i != node->data->sSize - 1)
+                        fprintf(fout, ", ");
+                }
             }
             else if (node->data->type == 7)
             {
                 fprintf(fout, "Elementul contine un VECTOR DE STRING:");
 
                 for(int i = 0; i < node->data->sSize ; i++)
-                    fprintf(fout, "\"%s\"; ", node->data->stringArray[i]);
+                {
+                    fprintf(fout, "\"%s\"", node->data->stringArray[i]);
+                    if(i != node->data->sSize - 1)
+                        fprintf(fout, "; ");
+                }
             }
             else if (node->data->type == 8)
             {
                 fprintf(fout, "Elementul contine un VECTOR DE BOOL: ");
 
                 for(int i = 0; i < node->data->sSize ; i++)
+                {
                     if(node->data->boolArray[i] == 1)
-                        fprintf(fout, "true, ");
+                        fprintf(fout, "true");
                     else
-                        fprintf(fout, "false, ");
+                        fprintf(fout, "false");
+
+                    if(i != node->data->sSize - 1)
+                        fprintf(fout, ", ");
+                }
             }
             else if (node->data->type == 9)
             {
                 fprintf(fout, "Elementul contine un VECTOR DE NULL: ");
 
                 for(int i = 0; i < node->data->sSize ; i++)
-                    fprintf(fout, "null, ");
+                {
+                    fprintf(fout, "null");
+                    if(i != node->data->sSize - 1)
+                        fprintf(fout, ", ");
+                }
             }
         }
 
@@ -105,12 +126,14 @@ void printParsedData(FILE* fout , struct treeNode* node)
     }
 }
 
+/* printTab() printeaza freq caractere '\t' */
 void printTab(int freq, FILE* fout)
 {
     for(int i = 0 ; i < freq ; i++)
         fprintf(fout, "\t");
 }
 
+/* printData() datele dintr-un nod */
 void printData(struct dataTypes* data, unsigned int level, FILE* fout)
 {
     switch(data->type)

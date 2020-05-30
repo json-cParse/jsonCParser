@@ -6,6 +6,7 @@
 #include "data.h"
 #include "conversion.h"
 #include "array.h"
+#include "printJSON.h"
 
 #define stringSize 30
 #define wordSize 1000
@@ -148,30 +149,29 @@ void addData(struct treeNode** node, FILE* fin)
 
 
 /* readData() citeste elementul sub forma unui tip de data pentru a fi adaugat intr-un nou element JSON */
-void readData(struct dataTypes** tempData)
+struct dataTypes* readData()
 {
-    *tempData = (struct tempData*)malloc(sizeof(struct dataTypes));
-    assert(*tempData != NULL);
+    struct dataTypes* tempData = (struct tempData*)malloc(sizeof(struct dataTypes));
+    assert(tempData != NULL);
 
     printf("Mai jos este o lista cu toate tipurile de date pe care le poti adauga in fisierele JSON.\nTe rugam sa selectezi tipul pe care doresti sa il adaugi!\n");
     printf("Valori simple:\n\t0 - int; 1 - double; 2 - string; 3 - bool; 4 - null.\nVectori:\n\t5 - int; 6 - double; 7 - string; 8 - bool; 9 - null.\n\n");
 
-    unsigned int type = -1;
     printf("Tasteaza codul tipului de date dorit: ");
-    scanf("%u", &type);
+    scanf("%u", &(tempData)->type);
 
-    switch(type)
+    switch(tempData->type)
     {
         case 0:
         {
             printf("Valoarea int este: ");
-            scanf("%d", &(*tempData)->intVal);
+            scanf("%d", &(tempData)->intVal);
             break;
         }
         case 1:
         {
             printf("Valoarea double este: ");
-            scanf("%f", &(*tempData)->doubleVal);
+            scanf("%f", &(tempData)->doubleVal);
             break;
         }
         case 2:
@@ -179,83 +179,153 @@ void readData(struct dataTypes** tempData)
             printf("Stringul este: ");
             fflush(stdin);
 
-            (*tempData)->String = (char*)malloc(wordSize * sizeof(char));
-            assert((*tempData)->String);
+            (tempData)->String = (char*)malloc(wordSize * sizeof(char));
+            assert((tempData)->String);
 
-            fgets((*tempData)->String, wordSize, stdin);
+            fgets((tempData)->String, wordSize, stdin);
+            tempData->String[strlen(tempData->String) - 1] = NULL;
             break;
         }
         case 3:
         {
             printf("Valoarea bool(tasteaza 0/1) este: ");
-            scanf("%d", &(*tempData)->boolVal);
+            scanf("%d", &(tempData)->boolVal);
             break;
         }
         case 4:
         {
             printf("Valoarea null este a fost adaugata!");
-            (*tempData)->nullVal = 1;
+            (tempData)->nullVal = 1;
             break;
         }
         case 5:
         {
             printf("Numarul de elemente este: ");
-            scanf("%u", &(*tempData)->sSize);
+            scanf("%u", &(tempData)->sSize);
 
-            (*tempData)->intArray = (int*)malloc((*tempData)->sSize * sizeof(int));
-            printf("\nCiteste cele %u elemente: ", (*tempData)->sSize);
-            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
-                scanf("%d", &(*tempData)->intArray[i]);
+            (tempData)->intArray = (int*)malloc((tempData)->sSize * sizeof(int));
+            printf("\nCiteste cele %u elemente: ", (tempData)->sSize);
+            for(unsigned int i = 0 ; i < (tempData)->sSize ; i++)
+                scanf("%d", &(tempData)->intArray[i]);
             break;
         }
         case 6:
         {
             printf("Numarul de elemente este: ");
-            scanf("%u", &(*tempData)->sSize);
+            scanf("%u", &(tempData)->sSize);
 
-            (*tempData)->doubleArray = (double*)malloc((*tempData)->sSize * sizeof(double));
-            printf("\nCiteste cele %u elemente: ", (*tempData)->sSize);
-            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
-                scanf("%f", &(*tempData)->doubleArray[i]);
+            (tempData)->doubleArray = (double*)malloc((tempData)->sSize * sizeof(double));
+            printf("\nCiteste cele %u elemente: ", (tempData)->sSize);
+            for(unsigned int i = 0 ; i < (tempData)->sSize ; i++)
+                scanf("%f", &(tempData)->doubleArray[i]);
             break;
         }
         case 7:
         {
             printf("Numarul de elemente este: ");
-            scanf("%u", &(*tempData)->sSize);
+            scanf("%u", &(tempData)->sSize);
 
-            (*tempData)->stringArray = (char**)malloc((*tempData)->sSize * sizeof(char*));
-            printf("\nCiteste cele %u elemente (!cu Enter dupa fiecare string!):", (*tempData)->sSize);
-            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
+            (tempData)->stringArray = (char**)malloc((tempData)->sSize * sizeof(char*));
+            printf("\nCiteste cele %u elemente (!cu Enter dupa fiecare string!):", (tempData)->sSize);
+            for(unsigned int i = 0 ; i < (tempData)->sSize ; i++)
             {
-                (*tempData)->stringArray[i] = (char*)malloc(wordSize * sizeof(char));
+                (tempData)->stringArray[i] = (char*)malloc(wordSize * sizeof(char));
                 fflush(stdin);
-                fgets((*tempData)->stringArray[i], wordSize, stdin);
+                fgets((tempData)->stringArray[i], wordSize, stdin);
+                tempData->stringArray[i][strlen(tempData->stringArray[i]) - 1] = NULL;
             }
             break;
         }
         case 8:
         {
             printf("Numarul de elemente este: ");
-            scanf("%u", &(*tempData)->sSize);
+            scanf("%u", &(tempData)->sSize);
 
-            (*tempData)->boolArray = (bool*)malloc((*tempData)->sSize * sizeof(bool));
-            printf("\nCiteste cele %u elemente (tasteaza 0/1): ", (*tempData)->sSize);
-            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
-                scanf("%d", &(*tempData)->boolArray[i]);
+            (tempData)->boolArray = (bool*)malloc((tempData)->sSize * sizeof(bool));
+            printf("\nCiteste cele %u elemente (tasteaza 0/1): ", (tempData)->sSize);
+            for(unsigned int i = 0 ; i < (tempData)->sSize ; i++)
+                scanf("%d", &(tempData)->boolArray[i]);
             break;
         }
         case 9:
         {
             printf("Numarul de elemente este: ");
-            scanf("%u", &(*tempData)->sSize);
+            scanf("%u", &(tempData)->sSize);
 
-            (*tempData)->nullArray = (bool*)malloc((*tempData)->sSize * sizeof(bool));
-            printf("\nCele %u elemente au fost adaugate!", (*tempData)->sSize);
-            for(unsigned int i = 0 ; i < (*tempData)->sSize ; i++)
-                (*tempData)->nullArray[i] = 1;
+            (tempData)->nullArray = (bool*)malloc((tempData)->sSize * sizeof(bool));
+            printf("\nCele %u elemente au fost adaugate!", (tempData)->sSize);
+            for(unsigned int i = 0 ; i < (tempData)->sSize ; i++)
+                (tempData)->nullArray[i] = 1;
             break;
         }
     }
+
+    return tempData;
 }
 
+/* getNode() returneaza nodul cu un un index dat */
+void getNode(struct treeNode** node, struct dataTypes* data, char* key, unsigned int index, unsigned int* currIndex, bool* cond)
+{
+    if(*node != NULL)
+    {
+        if(index == *currIndex && (*node)->kid != NULL && *cond == 0)
+        {
+            *cond = 1;
+            addBro(&(*node)->kid, key, *node);
+            *node = (*node)->kid;
+            while((*node)->bro)
+                *node = (*node)->bro;
+            (*node)->data = data;
+            return;
+        }
+
+        getNode((*node)->kid, data, key, index, currIndex, cond);
+        getNode((*node)->bro, data, key, index, currIndex, cond);
+    }
+}
+
+/* addJSON() adauga un nou element intr-un fisier JSON, pentru editare */
+void addJSON (struct treeNode* root)
+{
+    unsigned int index = 0;
+    bool cond = 0;
+
+    printTree(root, &index);
+
+    unsigned int cod;
+    printf("\nTasteaza codul: ");
+    scanf("%u", &cod);
+
+    index = 0;
+
+
+
+    printf("\nTe rugam sa introduci cheia elementului JSON: ");
+    char* tempKey = (char*)malloc(wordSize * sizeof(char));
+    fflush(stdin);
+    fgets(tempKey, wordSize, stdin);
+    tempKey[strlen(tempKey) - 1] = NULL;
+
+    struct dataTypes* data = readData();
+    printData(data, 0, stdout);
+    //getNode(&root, data, tempKey, cod, &index, &cond);
+
+    /// NEFUNCTIONAL
+
+    /*printf("\nTe rugam sa introduci cheia elementului JSON: ");
+    char* tempKey = (char*)malloc(wordSize * sizeof(char));
+    fflush(stdin);
+    fgets(tempKey, wordSize, stdin);
+
+
+    temp = dad;
+    printf("%s\n", temp->key);
+
+    dad = dad->kid;
+    printf("%s\n", dad->key);
+    addBro(&dad, tempKey, temp);
+
+    struct dataTypes* data;
+    readData(&data);
+    dad->data = data;*/
+}
