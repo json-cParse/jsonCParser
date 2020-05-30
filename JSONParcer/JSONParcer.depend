@@ -7,31 +7,30 @@
 	<stdbool.h>
 	"data.h"
 
-1590579155 c:\users\madalina\desktop\jsoncparser\jsonparcer\data.h
+1590838191 c:\users\madalina\desktop\jsoncparser\jsonparcer\data.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 
-1590571647 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.c
+1590838191 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<assert.h>
 	<string.h>
 
-1590571647 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\array.c
+1590840952 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\array.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<assert.h>
 	<string.h>
 	"data.h"
-	"tempFunctions.h"
 	"conversion.h"
 
 1590571647 c:\users\madalina\desktop\jsoncparser\jsonparcer\tempfunctions.h
 
-1590579169 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\main.c
+1590838191 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\main.c
 	<stdio.h>
 	<stdlib.h>
 	<assert.h>
@@ -40,25 +39,27 @@
 	"conversion.h"
 	"array.h"
 	"readJSON.h"
-	"tempFunctions.h"
+	"printJSON.h"
 
-1590571647 c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.h
+1590838191 c:\users\madalina\desktop\jsoncparser\jsonparcer\conversion.h
 	<stdbool.h>
 
-1590571647 c:\users\madalina\desktop\jsoncparser\jsonparcer\array.h
+1590838191 c:\users\madalina\desktop\jsoncparser\jsonparcer\array.h
 
-1590571647 c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.h
+1590838191 c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.h
+	"data.h"
 
-1590575812 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.c
+1590838191 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\readjson.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<assert.h>
 	"data.h"
-	"tempFunctions.h"
+	"conversion.h"
 	"array.h"
+	"printJSON.h"
 
-1590579605 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\data.c
+1590840952 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\data.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -259,14 +260,10 @@
 	"tempFunctions.h"
 	"array.h"
 
-1590573178 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\printjson.c
+1590838191 source:c:\users\madalina\desktop\jsoncparser\jsonparcer\printjson.c
 	<stdio.h>
 	<stdlib.h>
-	<stdbool.h>
-	<assert.h>
 	"data.h"
-	"tempFunctions.h"
-	"array.h"
 
 1590792547 source:d:\proiect uso\uso uso\jsoncparser\jsonparcer\array.c
 	<stdio.h>
@@ -353,4 +350,6 @@
 	"array.h"
 	"readJSON.h"
 	"printJSON.h"
+
+1590838191 c:\users\madalina\desktop\jsoncparser\jsonparcer\printjson.h
 

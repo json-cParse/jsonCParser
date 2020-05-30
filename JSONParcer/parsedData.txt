@@ -3,12 +3,34 @@ Obiectul root are:
 
 Obiectul quiz are: 
 	 Tatal: root 
-	 Copilul: maths 
+	 Copilul: sport 
+	 Fratele: INFO 
+
+Obiectul sport are: 
+	 Tatal: quiz 
+	 Copilul: q1 
+	 Fratele: maths 
+
+Obiectul q1 are: 
+	 Tatal: sport 
+	 Copilul: question 
+
+Obiectul question are: 
+	 Tatal: q1 
+	 Fratele: options 
+	 Continut -> Elementul contine un STRING: Which one is correct team name in NBA?
+
+Obiectul options are: 
+	 Tatal: q1 
+	 Fratele: answer 
+	 Continut -> Elementul contine un VECTOR DE STRING:"New York Bulls"; "Los Angeles Kings"
+Obiectul answer are: 
+	 Tatal: q1 
+	 Continut -> Elementul contine un STRING: Huston Rocket
 
 Obiectul maths are: 
 	 Tatal: quiz 
 	 Copilul: q1 
-	 Fratele: Informatica 
 
 Obiectul q1 are: 
 	 Tatal: maths 
@@ -45,7 +67,7 @@ Obiectul answer are:
 	 Tatal: q2 
 	 Continut -> Elementul contine un DOUBLE: 4.20
 
-Obiectul Informatica are: 
-	 Tatal: quiz 
-	 Continut -> Elementul contine un STRING: Ce este C++?
+Obiectul INFO are: 
+	 Tatal: root 
+	 Continut -> Elementul contine un INT: 6
 
